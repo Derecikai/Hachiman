@@ -1,0 +1,42 @@
+.bef-container{position: relative;
+ height: 470px;
+ width: 600px;
+}
+
+
+.bef-logo{
+position: absolute;
+top: -90px;
+left: 550px;
+ width: 490px;
+ height: 700px;
+   background-image: url('https://wallpapers.com/images/high/artificial-intelligence-868-x-1543-wallpaper-3pv2vlfpyklhfngk.webp');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+   
+}
+.get-mogged {
+  min-width: 900px;
+  position: absolute;
+  top: 490px;
+  left: 360px;
+ background: linear-gradient(90deg, rgba(126,34,195,1) 0%, rgba(34,195,139,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px; 
+  -webkit-text-stroke-color: transparent; /* Added to remove the black contour */
+  font-family: "Raleway", sans-serif;
+  font-size: 100px;
+  text-shadow:  4px 4px 4px 4px white;
+}
+/* .bef-shadow{
+  position: absolute;
+  top: 200px;
+  right: -399px;
+  width: 400px;
+  height: 350px;
+  background: linear-gradient(90deg, rgb(255, 255, 255) , rgba(20, 230, 156, 0.74) 100%);
+  filter: blur(805px);
+  border-radius: 50%;
+  z-index: 20;
+} */

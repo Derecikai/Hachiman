@@ -1,0 +1,49 @@
+.nav-container{
+ position: relative;
+ min-width: 100vh;
+ min-height:  60px;
+ backdrop-filter: blur(10px); 
+  background-color: #000000;
+  color: white; /* Add text color as needed */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+transition: border-bottom 0.3s ease; /* Add a transition effect for smoother appearance */
+  border-bottom: 2px solid transparent; 
+  
+}
+
+
+.nav-container:hover {
+  border-bottom: 2px solid rgb(255, 255, 255); /* Change the color and size as needed */
+}
+
+.nav-left-text{
+ font-size: 12px;
+ position: relative;
+ font-family: "Raleway", sans-serif;
+ color: rgb(255, 255, 255);
+ left: 30px;
+}
+span{
+ color: #8087f3;
+}
+.nav-right-icon{
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.linktm{
+  display: inline-block;
+}
+.nav-icons{
+  margin-top: 4px;
+  width: 35px;
+  height: 26px;
+  transition: all ease-in 0.1s;
+}
+.nav-icons:hover{
+  transform: translateY(-3px);
+}

@@ -1,0 +1,66 @@
+.bus-container{
+ margin-top: 290px;
+ margin-left: 170px;
+ background-color: #00000054;
+ height: 600px;
+ max-width: 1250px;
+ overflow: hidden;
+  /* background-image: url('https://wallpapers.com/images/high/artificial-intelligence-868-x-1543-wallpaper-3pv2vlfpyklhfngk.webp');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    margin-top: 20px;
+    margin-left: 640px; 
+    transition: all ease-in 0.2s; */
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+ 
+}
+h3{
+ color: brown;
+}
+.buscard-container{
+  z-index: 100;
+  margin-top: 10px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid #8088f350;;
+  border-radius: 3%;
+  transition: all ease-in 0.2s;
+}
+.buscard-container:hover{
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 1px 4px #8088f3;
+}
+svg
+{
+  color: rgb(255, 255, 255);
+  width: 50px;
+  height: 60px;
+}
+.buscard-logo{
+  margin-top: 15px;
+  margin-left: 50px;
+  width: 50px;
+  height: 60px;
+  color: white;
+}
+.buscard-title{
+  margin: 0px;
+  margin-left: 40px;
+  color: aliceblue;
+  font-family: 'Oswald', sans-serif;
+}
+.buscard-text{
+  font-family: 'Oswald', sans-serif;
+  margin-left: 40px;
+  text-align: left;
+  max-width: 350px;
+  color: rgb(164, 168, 168);
+  margin-bottom: 20px;
+}
