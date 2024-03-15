@@ -3,6 +3,7 @@ const app = express();
 const port = 8000;
 
 app.get('/main', (req, res) => {
+    console.log('Hello');
     res.status(200).send('Yo baby');
 });
 
