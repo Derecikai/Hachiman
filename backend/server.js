@@ -1,12 +1,23 @@
-const express = require('express');
-const app = express();
+
 const port = 8000;
+const app = require('./app');
 
 app.get('/main', (req, res) => {
-    console.log('Hello');
-    res.status(200).send('Yo baby');
+    console.log('Hello there');
+    res.status(200).json({
+        text: "Hello"
+    });
 });
 
-app.listen(port, () => {
-    console.log('Server working on port 8000');
+const server = app.listen(port , () =>{
+ console.log(`App running on port ${port}...`);
+
+});
+
+process.on('unhandledRejection', err =>{
+ console.log(err.name, err.message);
+ console.log('Shuting down server');
+ server.close(() => {
+  process.exit(1);
+ })
 });

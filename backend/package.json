@@ -1,0 +1,15 @@
+{
+  "name": "hachiman",
+  "version": "1.0.0",
+  "description": "backend servver",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Marcu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3"
+  }
+}
