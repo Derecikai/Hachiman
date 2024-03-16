@@ -1,3 +1,5 @@
+const Lecture = require('../models/lectureModel');
+
 
 exports.signUp = (req, res, next)  => {
  

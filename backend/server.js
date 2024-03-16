@@ -17,39 +17,39 @@ useFindAndModify: false
 .then(()=> console.log('DB connection succsesfull'));
 
 
-const lectureSchema = new mongoose.Schema({
+// const lectureSchema = new mongoose.Schema({
 
-    name:{
-        type: String,
-        required: [true,'A lecture must have an uniqe tutor']
-    },
+//     name:{
+//         type: String,
+//         required: [true,'A lecture must have an uniqe tutor']
+//     },
 
-    rating:{
-        type: Number,
-        required: [true,'A lecture must have a rating'],
-        default: 4.5
-    },
+//     rating:{
+//         type: Number,
+//         required: [true,'A lecture must have a rating'],
+//         default: 4.5
+//     },
 
-    price:{
-        type: Number,
-        required: [true,'A lecture must have a price'],
-    }
+//     price:{
+//         type: Number,
+//         required: [true,'A lecture must have a price'],
+//     }
 
-})
+// })
 
-const Lecture = mongoose.model('Lecture', lectureSchema);
+// const Lecture = mongoose.model('Lecture', lectureSchema);
 
-const testLec = new Lecture({
-    name: 'Video ai',
-    rating: 4.7,
-    price: 400
-});
+// const testLec = new Lecture({
+//     name: 'Video ai',
+//     rating: 4.7,
+//     price: 400
+// });
 
-testLec.save().then(doc =>{
-    console.log(doc);
-}).catch(err => {
-    console.log(err.message);
-})
+// testLec.save().then(doc =>{
+//     console.log(doc);
+// }).catch(err => {
+//     console.log(err.message);
+// })
 
 app.get('/main', (req, res) => {
     console.log('Hello there');
