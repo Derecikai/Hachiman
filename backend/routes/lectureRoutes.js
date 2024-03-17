@@ -3,8 +3,14 @@ const router = express.Router();
 const lectureController = require("../controllers/lectureController");
 
 
-router
-.post('/', lectureController.createLecture)
-.get('/', lectureController.getAllLectures);
 
+router
+.route('/')
+.get(lectureController.createLecture)
+.post(lectureController.createLecture)
+
+
+router
+.route('/:id')
+.get(lectureController.getLectureById);
 module.exports = router;

@@ -42,7 +42,26 @@ lectureSchema.virtual('author').get(function() {
 
   return this.firstName + ' ' + this.secondName;
 
-})
+});
+
+lectureSchema.pre(/^find/,function(next){ //all the strings that start with find
+  //  this.find({ secretTour: { $ne: true } });
+
+
+   this.start = Date.now();
+   
+  next();
+});
+
+lectureSchema.post(/^find/,function(docs, next){ //all the strings that start with find
+
+  
+  console.log(`Query took ${Date.now()-this.start} miliseconds`);
+
+
+
+  next();
+});
 
 
 const Lecture = mongoose.model('Lecture', lectureSchema);
