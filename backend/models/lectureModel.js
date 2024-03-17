@@ -5,7 +5,9 @@ const lectureSchema = new mongoose.Schema({
 
     name:{
         type: String,
-        required: [true,'A lecture must have a name']
+        required: [true,'A lecture must have a name'],
+        unique: true,
+        trim: true,
     },
     
     firstName:{
