@@ -6,7 +6,7 @@ const lectureController = require("../controllers/lectureController");
 
 router
 .route('/')
-.get(lectureController.createLecture)
+.get(lectureController.getAllLectures)
 .post(lectureController.createLecture)
 
 

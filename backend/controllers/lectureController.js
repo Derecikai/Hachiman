@@ -46,23 +46,7 @@ try{
  }
    };
 
-   exports.getAllLectures = async (req, res, next)  => {
- 
-try{
-
-   const newLec = await Lecture.find();
-
-    res.status(200).json({
-     status: "succes",
-     data: newLec
-     
-    })
- }
- catch(err)
- {
-  console.log(err.message);
- }
-   };
+  
    
    exports.getLectureById = async (req, res, next)  => {
  
