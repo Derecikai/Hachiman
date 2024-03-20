@@ -30,3 +30,33 @@ const token = SignToken(newUser._id);
     })
  
 };
+
+exports.logIn = async (req, res, next) =>{
+   try{
+    const {email, password} = req.body;
+
+    if(!email || !password){
+      console.log("Please fill in the form");
+    }
+  
+    const doc = await User.findOne({email}).select("+password");
+
+    if(!doc || !(await doc.correctPassword(password,doc.password))){
+       console.log("Username or password inccorect");
+    }
+     console.log(doc);
+    const token = SignToken(doc._id);
+
+
+    res.status(200).json({
+      status: "Succes",
+      token: token,
+      data: doc
+    });
+
+   }
+   catch(err){
+      console.log(err.message);
+   }
+
+}
