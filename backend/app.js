@@ -4,10 +4,13 @@ const lectureRouter = require('./routes/lectureRoutes');
 const reviewRouter = require('./routes/reviewRoutes')
 const app = express();
 const globalErrorHandler = require('./controllers/errorController')
+const cors = require('cors'); // Import cors
 
 app.use(express.static(`${__dirname}/public`))
 
 app.use(express.json({ limit: '15kb' }));//middleware
+
+app.use(cors());
 
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/lectures', lectureRouter);

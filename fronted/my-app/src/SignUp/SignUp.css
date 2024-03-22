@@ -1,172 +1,89 @@
 .yo12{
+  position: relative;
  z-index: 1;
  width: 100%;
  height: 900px;
- background-color: rgb(0, 0, 0);
+background: linear-gradient(90deg, rgba(140,137,137,1) 0%, rgba(227,187,143,1) 100%);
+    /* background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat; */
+
  color: red;
  display: flex;
  align-items: center;
-}
-.left-sing{
- position: relative;
- flex: 2;
- height: 900px;
- width: 54%;
- background-color: rgb(0, 0, 0);
-    background-image: url('https://cdn.dribbble.com/users/10859211/screenshots/17581492/media/0bda8ba86f503fba45d80fed8901bdb5.png?resize=768x576&vertical=center'); 
-    background-position: center;
-    background-size: cover; 
-    background-repeat: no-repeat;  
-    border-bottom-right-radius: 9px;
-    border-top-right-radius: 9px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}
-.right-sing{
- 
- flex: 1.5;
- height: 900px;
- width: 50%;
-  background-image: url('https://cdn.dribbble.com/userupload/9892968/file/original-facd50c849bf9e5e026ee94efc1fdf4a.jpg?resize=1024x476'); 
-    background-position: center;
-    background-size: cover; 
-    background-repeat: no-repeat;  
-    /* border-bottom-left-radius: 9px;
-    border-top-left-radius: 9px; */
-
- display: flex;
  justify-content: center;
- align-content: center;
+
 
 }
-.sign-txt{
- margin-bottom: 20px;
- margin-top: 50px;
- font-size: 50px;
- color: white;
- margin-left: 5px;
-font-family: "Raleway", sans-serif;
- z-index: 1101;
- 
+.sign-container{  
+  position: relative;
+  width: 80%;
+  height: 800px;
+  /* background-color: rgba(0, 0, 0, 0); */
+  border-radius: 5px;
+   display: flex;
+   
 }
-.span2{
-  background: linear-gradient(90deg, rgba(126,34,195,1) 0%, rgba(34,195,139,1) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 1px; 
-  -webkit-text-stroke-color: transparent;
+.left-sign{
+  height: 100%;
+  width: 100%;
+  background-image: url('https://cdn.dribbble.com/userupload/7939356/file/original-c60942e38f51e515f6e939db25b7e72e.png?resize=640x480&vertical=center'); 
+    background-position: center;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    flex: 1;
+   
 }
-.start-sign{
- margin-top: 60px;
- display: flex;
- flex-direction: column;
- justify-content: flex-start;
-}
-
-
-
-
-
-
-
-
-
-
-.cover-sign{
- z-index: 1100;
- position: absolute;
- height: 900px;
- width: 100%;
-background: rgba(0, 0, 0, 0.151);
+.left-shadow{
+  height: 100%;
+  width: 100%;
+  background-color: #00000044;
+  border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
- .ball-sign{
- z-index: 1102;
- position: absolute;
- width: 250px;
- height: 200px;
- top: 400px;
- left: 750px;
-}
-/* .ball-sign::before{
-content: '';
-position:;
-display: block;
-border-radius: 100% 50%;
-width: 10%;
-height: 100%;
-background: linear-gradient(16deg, rgba(180, 58, 141, 0.37) 0%, rgba(180, 58, 141, 0.37) 100%);
-z-index: 4000;
-transform: translate(10% , -100%);
-}  */
- .ball-sign::after{
-content: '';
-position: absolute;
-display: block;
-border-radius: 50% 100%;
-width: 75%;
-height: 100%;
-background-color: #000000;
-z-index: 4000;
-transform: translate(50% , -234%);
-} 
-.sign-p{
-z-index: 1101;
- max-width: 800px;
- font-family: 'Oswald', sans-serif;
- font-size: 27px;
- color: rgb(212, 211, 211);
- text-align: start;
- margin-top: 40px;
+.right-sign{
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  
 }
 .form-shit{
-    margin-top: 65px;
-    border-radius: 5%;
+
     width: 545px;
     height: 800px;
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgba(209, 112, 22, 0.24); */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 .formular{
-  width: 500px;
-  margin-left: 176px;
-  margin-top: 20px;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px; */
+  /* border: 1px solid white;
+   border-radius: 5px; */
+   margin-bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(209, 112, 22, 0.24);
+   display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
 }
 
-
-/* Input from here */
-/* .sign-input{
-  border-radius: 9px;
-  min-width: 320px ;
-  min-height: 40px;
-  margin: 10px 0;
-  background-color: #181818;
-  color: white;
-  font-size: 20px;
-}
-input:focus{
-  border-color: rgb(255, 0, 0);
-} */
 .ceva{
+  margin-right: 10px;
   font-family: "Raleway", sans-serif;
    font-weight: bold;
    color: white;
-   margin-left: 100px;
-   margin-bottom: 40px;
-   margin-top: 20px;
+   
+   margin-bottom: 30px;
+   /* margin-top: 20px; */
 }
  .sign-input {
         width: 300px;
@@ -175,8 +92,8 @@ input:focus{
         margin-top: 15px;
         border: none;
         border-radius: 5px;
-        background-color: #333333;
-        color: #dbdada;
+        background-color: #a7a5a5;
+        color: #ffffff;
         font-family: "Raleway", sans-serif;
         font-weight: bold;
         font-size: 16px;
@@ -211,9 +128,9 @@ input:focus{
         font-size: 18px;
         color: #ffffff;
         margin-bottom: 5px;
-        margin-left: 2px;
+        margin-left: 159px;
         /* margin-top: 5px; */
-        text-align: left;
+       align-self: flex-start;
     }
 .logos-sign {
   margin-top: 10px;
@@ -245,6 +162,7 @@ input:focus{
 
 .submit-butt {
   margin-top: 50px;
+  margin-bottom: 20px;
   width: 315px;
   margin-left: 2px;
   max-width: 350px;
@@ -264,8 +182,8 @@ input:focus{
   /* width: 325px; */
   border-radius: 8px;
   background-color: #000000;
-  color: rgb(255, 255, 255);
-  border: 1px solid #8087f3;
+  color: rgb(209, 97, 23);
+  /* border: 1px solid #8087f3; */
   
 }
 .error-message {
