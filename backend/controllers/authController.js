@@ -1,6 +1,8 @@
 const Lecture = require('../models/lectureModel');
 const User = require('../models/userModel')
 const jwt = require('jsonwebtoken');
+const AppError = require('../utils/AppError');
+const catchAsync = require('../utils/catchAsync')
 
 const SignToken = id =>{
    return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -8,9 +10,8 @@ const SignToken = id =>{
    });
 }
 
-exports.signUp = async (req, res, next)  => {
+exports.signUp = catchAsync (async (req, res, next)  => {
  
-
    const newUser = await User.create({
       email: req.body.email,
       username: req.body.username,
@@ -28,25 +29,26 @@ const token = SignToken(newUser._id);
       token: token,
      data: newUser
     })
- 
-};
+   
+});
 
-exports.logIn = async (req, res, next) =>{
-   try{
+exports.logIn = catchAsync(async (req, res, next) =>{
+   
     const {email, password} = req.body;
 
     if(!email || !password){
-      console.log("Please fill in the form");
+       return next( new AppError('Please fill the required spaces',404));
     }
   
     const doc = await User.findOne({email}).select("+password");
 
     if(!doc || !(await doc.correctPassword(password,doc.password))){
-       console.log("Username or password inccorect");
+       return next( new AppError('Inccorect email or password',404));
     }
      console.log(doc);
     const token = SignToken(doc._id);
-
+    
+    doc.password = undefined;
 
     res.status(200).json({
       status: "Succes",
@@ -54,9 +56,7 @@ exports.logIn = async (req, res, next) =>{
       data: doc
     });
 
-   }
-   catch(err){
-      console.log(err.message);
-   }
+   
+   
 
-}
+});
