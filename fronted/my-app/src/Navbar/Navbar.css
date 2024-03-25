@@ -47,3 +47,10 @@ span{
 .nav-icons:hover{
   transform: translateY(-3px);
 }
+.dropdown-content{
+
+ 
+  width: 100px;
+  height: 100px;
+  background-color: antiquewhite;
+}

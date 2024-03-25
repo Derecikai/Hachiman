@@ -1,5 +1,6 @@
 const Lecture = require('../models/lectureModel');
 const { all } = require('../routes/lectureRoutes');
+const ApiFeatures = require('../utils/apiFeatures');
 
 
 exports.createLecture = async (req, res, next)  => {
@@ -31,8 +32,8 @@ try{
    exports.getAllLectures = async (req, res, next)  => {
  
 try{
-
-   const newLec = await Lecture.find();
+   const features = new ApiFeatures(Lecture.find(),req.query).filter().sort().limitFields();
+   const newLec = await features.query;
 
     res.status(200).json({
      status: "succes",
