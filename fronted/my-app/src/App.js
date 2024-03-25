@@ -9,6 +9,7 @@ import Busbef from './Busbef/Busbef';
 import Choose from './Choose/Choose';
 import SignUp from './SignUp/SignUp';
 import GetAll from './GetAll';
+import Home from './Home/Home';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
        
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<GetAll />} />
+        <Route path="/home" element={<Home />} />
        
 
         {/* /chatroom/${persdata.sub} */}

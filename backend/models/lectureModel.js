@@ -9,6 +9,15 @@ const lectureSchema = new mongoose.Schema({
         unique: true,
         trim: true,
     },
+     image:{
+      type: String,
+      required: [true,'A lecture should have an image'],
+     },
+
+    summary:{
+      type: String,
+      trim: true
+    },
     
     firstName:{
      type: String,
@@ -29,6 +38,10 @@ const lectureSchema = new mongoose.Schema({
     price:{
         type: Number,
         required: [true,'A lecture must have a price'],
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now(),
     }
 
 },

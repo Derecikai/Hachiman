@@ -8,11 +8,11 @@ import { CiLogin } from "react-icons/ci";
 const Navbar = () => {
 
 const [isMenuOpen,setIsMenuOpen] = useState(null);
-const [modalActive,setModalActive] = useState(null);
+
 
  const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    setModalActive(!modalActive)
+   
   };
 
 
@@ -27,6 +27,16 @@ const [modalActive,setModalActive] = useState(null);
        <Link className='linktm' to={'/'}> <FaGithubAlt className='nav-icons' /></Link>
         
       <Link className='linktm' to={'/signup'}> <CiLogin className='nav-icons' />  </Link>
+
+       <div className="dropdown">
+                    <CiMenuBurger className='nav-icons' onClick={handleToggleMenu} />
+                    {isMenuOpen && (
+                        <div className="dropdown-content">
+                            <Link to="/home">Home</Link>
+                            <Link to="/signup">Signup</Link>
+                        </div>
+                    )}
+                </div>
       
       </div>
      

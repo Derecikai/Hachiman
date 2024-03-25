@@ -26,7 +26,7 @@ transition: border-bottom 0.3s ease; /* Add a transition effect for smoother app
  left: 30px;
 }
 span{
- color: #8087f3;
+ color: rgb(41, 219, 109);
 }
 .nav-right-icon{
   margin-right: 100px;
@@ -46,4 +46,11 @@ span{
 }
 .nav-icons:hover{
   transform: translateY(-3px);
+}
+.dropdown-content{
+
+ 
+  width: 100px;
+  height: 100px;
+  background-color: antiquewhite;
 }

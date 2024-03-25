@@ -7,16 +7,19 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import { FaApple } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
+import axios from 'axios'; // Import Axios
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
   
+  const navigate = useNavigate();
 
   const schema = yup.object().shape({
     username: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(5).max(20).required(),
-    confirmPassword: yup.string().oneOf([yup.ref("password"), null]).required(),
+    passwordConfirm: yup.string().oneOf([yup.ref("password"), null]).required(),
   })
 
 const {register, handleSubmit, formState: {errors},}= useForm({
@@ -31,32 +34,39 @@ const {register, handleSubmit, formState: {errors},}= useForm({
   })
 
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    try{
+
+      const response = await axios.post('http://localhost:8000/api/v1/users/signup', {
+        email: data.email,
+        password: data.password,
+        passwordConfirm: data.passwordConfirm,
+        username: data.username
+      });
+
+      console.log(response.data);
+      navigate('/home');
+
+    }catch(err)
+    {
+     console.log(err.response.data.message);
+    }
   }
 
   return (
     <div className='yo12'>
-     <div className='left-sing'>
-      <div className='cover-sign'>
-      </div>
-      <div className='ball-sign'></div>
-<div className='start-sign'>
-      <h3 className='sign-txt'>WANT TO BE  
-<span className='span2'> {text}</span>
-  <span>{<Cursor />} </span></h3>
 
-    <p className='sign-p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore necessitatibus eaque, enim, eum voluptas  sapiente ducimus ullam vitae voluptatum quam autem  optio astre <span className='span2'>alias! Tenetur veritatis est alias voluptas! Officia molestiae deleniti eaque consequatur!</span></p>
+     <div className='sign-container'>
 
-     </div>
-     
-     </div>
-     <div className='right-sing'>
-  
-      <div className='form-shit'>
+    <div className='left-sign'>
+      <div className='left-shadow'></div>
+    </div>
+    <div className='right-sign'>
+   
         <form className='formular' onSubmit={handleSubmit(onSubmit)}>
         <h1 className='ceva'>Sign Up</h1>
-        <h4 className='h4-sign'>Email *</h4>
+        <h4 className='h4-sign'>Email * </h4>
 
         <input className='sign-input' type="text" 
         autoComplete="off" {...register("email")} />
@@ -67,27 +77,31 @@ const {register, handleSubmit, formState: {errors},}= useForm({
         {...register("username")} />
         <p className='error-message'>{errors.username?.message}</p>
 
-        <h4 className='h4-sign'>Password *</h4>
+        <h4 className='h4-sign'>Password * </h4>
         <input className='sign-input' type="password" 
         {...register("password")} />
         <p className='error-message'>{errors.password?.message}</p>
 
         <h4 className='h4-sign'>Confirm Password *</h4>
         <input className='sign-input' type="password" 
-       {...register("confirmPassword")} />
-       <p className='error-message'>{errors.confirmPassword?.message}</p>
-       
+       {...register("passwordConfirm")} />
+       <p className='error-message'>{errors.passwordConfirm?.message}</p>
+
        {/* <div className='logos-sign'>
-        
+
         <FaGoogle className='sign-up-logo'/> 
         <h2 className='logo-text-siogn'>Login with Google</h2>
        </div> */}
 
        <input className='submit-butt' type="Submit" />
         </form>
-      
-      </div>
 
+      
+    </div>
+  
+      
+
+     
      </div>
     </div>
   )
