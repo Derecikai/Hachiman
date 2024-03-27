@@ -12,5 +12,6 @@ router
 
 router
 .route('/:id')
-.get(lectureController.getLectureById);
+.get(lectureController.getLectureById)
+.patch(lectureController.updateLecture);
 module.exports = router;
