@@ -186,3 +186,11 @@ background-color: #000000;
   background-color: rgb(0, 0, 0);
   border-bottom: 1px solid rgba(128, 128, 128, 0.274);
 }
+.home-counter-2{
+   margin-left: 70px;
+  padding-top: 600px;
+  width: 91%;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.274);
+}

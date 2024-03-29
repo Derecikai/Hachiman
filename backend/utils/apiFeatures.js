@@ -45,6 +45,19 @@ return this;
  }
    return this;
  }
+ paginate()
+{
+const page = this.queryString.page * 1 || 1;
+const limit = this.queryString.limit * 1 || 100;
+
+const skip = (page -1) * limit;
+//limit=10&page=2   1-10 page 1 , 11-20 page 2
+console.log(page,limit,skip);
+ this.query = this.query.skip(skip).limit(limit);
+//AICI DACA DACA SKIPU II MAI MARE DECAT NR DE TURURI DAM EROARE CA NU AVEM PAGINA
+
+return this;
+}
 
 
 }

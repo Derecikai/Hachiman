@@ -1,0 +1,82 @@
+.home3-container{
+ position: relative;
+ width: 100%px;
+ height: 400px;
+ background-color: rgba(0, 0, 0, 0.219);
+ padding-top: 40px;
+}
+.home3-content{
+ position: relative;
+ padding-top: 60px;
+ height: 200px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-right: 30px;
+}
+
+.data-home3{
+ position: relative;
+ display: flex;
+ width: 100%;
+ margin-left: 40px;
+ background-color: rgb(61, 61, 61);
+ padding: 4px;
+ border-radius: 9px;
+margin-right: 20px;
+transition: all ease-in 0.2s;
+cursor: pointer;
+
+}
+.data-home3:hover {
+ transform: scale(105%);
+ 
+}
+.home3-left{
+ height: 0px;
+}
+.home3-img{
+ width: 230px;
+ height: 230px;
+ border-radius: 9px;
+}
+.home3-author{
+ position: absolute;
+ width: 20px;
+ height: 20px;
+ left: 270px;
+ top: 125px;
+ color: rgb(41, 219, 109);
+}
+.home3-rating{
+ font-family: "Roboto Condensed", sans-serif;
+ color: white;
+ font-weight: 300;
+}
+.home-3-price{
+ font-family: "Roboto Condensed", sans-serif;
+ color: rgb(41, 219, 109);
+ font-weight: 400;
+ font-size: 20px;
+}
+.home-3right{
+ padding: 5px 0px;
+ margin-left: 20px;
+}
+.home3-top{
+ z-index: 1000;
+ position: absolute;
+ top: -60px;
+ font-family: "Roboto Condensed", sans-serif;
+ color: rgb(255, 255, 255);
+ margin-left: 150px;
+}
+.home3-top2{
+ position: absolute;
+ top: -50px;
+ font-size: 24px;
+ right: 100px;
+ font-family: "Roboto Condensed", sans-serif;
+ color: rgb(255, 255, 255);
+ margin-left: 140px;
+}

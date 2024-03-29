@@ -37,7 +37,7 @@ try{
     const features = new ApiFeatures(Lecture.find({ name: { $regex: req.query.search, $options: 'i' } }));
      newLec = await features.query;
 } else {
-   const features = new ApiFeatures(Lecture.find(),req.query).filter().sort().limitFields();
+   const features = new ApiFeatures(Lecture.find(),req.query).filter().sort().limitFields().paginate();
     newLec = await features.query;
     // Code for handling cases where there is no search query
 }
