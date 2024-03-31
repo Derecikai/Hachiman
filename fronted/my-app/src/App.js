@@ -10,6 +10,7 @@ import Choose from './Choose/Choose';
 import SignUp from './SignUp/SignUp';
 import GetAll from './GetAll';
 import Home from './Home/Home';
+import Search from './Search/Search';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<GetAll />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/search" element={<Search />} />
        
 
         {/* /chatroom/${persdata.sub} */}

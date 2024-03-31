@@ -20,7 +20,7 @@
  display: flex;
  width: 100%;
  margin-left: 40px;
- background-color: rgb(61, 61, 61);
+ background-color: rgb(24, 24, 24);
  padding: 4px;
  border-radius: 9px;
 margin-right: 20px;
@@ -67,6 +67,7 @@ cursor: pointer;
  z-index: 1000;
  position: absolute;
  top: -60px;
+ left: -20px;
  font-family: "Roboto Condensed", sans-serif;
  color: rgb(255, 255, 255);
  margin-left: 150px;
