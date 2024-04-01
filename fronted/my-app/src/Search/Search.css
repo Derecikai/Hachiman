@@ -1,5 +1,115 @@
 .hahah{
+ position: relative;
+ margin-top: 40px;
+ width: 100px;
+ height: 40px;
+ background-color: rgb(0, 0, 0);
+ border-color: rgb(41, 219, 109);
+ border-radius: 9px;
+ /* border-style: none; */
+ font-family: "Roboto Condensed", sans-serif;
+ font-size: 25px;
+ color: aliceblue;
+ transition: all ease-in 0.2s;
+ font-weight: 200;
+ 
+}
+.hahah:focus {
  width: 300px;
- height: 300px;
- background-color: rgb(184, 180, 180);
+  outline: none;
+
+}
+.search-container{
+ background-image: url('https://cdn.dribbble.com/userupload/12194280/file/original-52540117c2e5fa9655fc9286506848b9.jpg?resize=640x480&vertical=center'); 
+    /* background-position: center; */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+ min-height: 900px;
+ display: flex;
+}
+.search-left{
+ width: 300px;
+ background-color: #000000;
+ border-right:1px solid #ffffff;
+ 
+ color: white;
+ 
+ 
+}
+.search-filter-txt{
+ margin: 0px;
+ margin-top: 20px;
+ padding: 7px 0px;
+ border-radius: 3px;
+ position: relative;
+ color: rgb(255, 255, 255);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  font-size: 30px;
+  transition: all ease-in 0.2s;
+}
+.search-filter-txt:hover{
+ background-color: #252525;
+}
+.arrow-filter{
+ top: 14px;
+ right: 45px;
+ position: absolute;
+ height: 24px;
+ width: 24px;
+ cursor: pointer;
+ transition: all ease-in 0.2s;
+}
+.rotated{
+ transform:rotate(90deg);
+}
+.search-right{
+min-height: 900px;
+width: 100%;
+background-color: #000000e5;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+
+}
+.idk{
+ margin-top: 110px;
+ display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 150px; 
+            
+}
+
+.saerch-lecture-div{
+max-width: 400px;
+max-height: 200px;
+transition: all ease-in-out 0.2s;
+cursor: pointer;
+}
+.saerch-lecture-div:hover{
+ transform: scale(105%);
+}
+.search-img{
+ width: 157px;
+ height: 157px;
+ border-radius: 9px;
+}
+.search-title{
+ color: rgb(255, 255, 255);
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 200;
+}
+li{
+ list-style: none;
+}
+.loophole{
+ position: absolute;
+ width: 40px;
+ height: 40px;
+ color: rgb(41, 219, 109);
+ font-weight: 200;
+ left: 1100px;
+ top: 105px;
 }

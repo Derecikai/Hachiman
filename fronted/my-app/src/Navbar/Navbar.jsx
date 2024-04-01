@@ -34,6 +34,7 @@ const [isMenuOpen,setIsMenuOpen] = useState(null);
                         <div className="dropdown-content">
                             <Link to="/home">Home</Link>
                             <Link to="/signup">Signup</Link>
+                            <Link to="/search">Search</Link>
                         </div>
                     )}
                 </div>

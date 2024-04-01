@@ -1,7 +1,7 @@
 .home3-container{
  position: relative;
  width: 100%px;
- height: 400px;
+ height: auto;
  background-color: rgba(0, 0, 0, 0.219);
  padding-top: 40px;
 }
@@ -13,12 +13,13 @@
  align-items: center;
  justify-content: center;
  margin-right: 30px;
+ flex-wrap: wrap;
 }
 
 .data-home3{
  position: relative;
  display: flex;
- width: 100%;
+ max-width: 520px;
  margin-left: 40px;
  background-color: rgb(24, 24, 24);
  padding: 4px;

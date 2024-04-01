@@ -1,46 +1,71 @@
 import React, { useState, useEffect } from 'react';
 import './Search.css'
-
+import { MdArrowForwardIos } from "react-icons/md";
+import { FaSearchDollar } from "react-icons/fa";
 
 const Search = () => {
 
    const [searchTerm, setSearchTerm] = useState('');
   const [lectures, setLectures] = useState([]);
+   const [rotated, setRotated] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      let response
       try {
-        const response = await fetch(`http://localhost:8000/api/v1/lectures?search=${encodeURIComponent(searchTerm)}`);
+        if(searchTerm === ""){
+          response = await fetch(`http://localhost:8000/api/v1/lectures`);
+        }
+        else
+        {
+          response = await fetch(`http://localhost:8000/api/v1/lectures?search=${encodeURIComponent(searchTerm)}`);
+        }
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        // setLectures(data);
-        console.log(data);
+        setLectures(data.data);
+       
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    if (searchTerm !== '') {
+    // if (searchTerm !== '') {
       fetchData();
-    } else {
-      setLectures([]);
-    }
+    // } else {
+    //   setLectures([]);
+    // }
   }, [searchTerm]);
 
 const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
+  // Function to toggle rotation state
+  const toggleRotation = () => {
+    setRotated(!rotated);
+  };
+
   return (
-    <div>
-      <input className='hahah' type="text" value={searchTerm} onChange={handleSearchChange} />
-      {/* <ul>
-        {lectures.map((lecture) => (
-          <li key={lecture.id}>{lecture.title}</li>
+    <div className='search-container'>
+      <div className='search-left'>
+        <h3 className='search-filter-txt'>Filter by <MdArrowForwardIos className={`arrow-filter ${rotated ? 'rotated' : ''}`} onClick={toggleRotation} /></h3>
+      </div>
+      <div className='search-right'>
+      <input className='hahah' type="text" value={searchTerm} onChange={handleSearchChange}  />
+      <FaSearchDollar className='loophole' />
+      <div className='idk'>
+        {lectures && lectures.map((lecture) => (
+         
+          <li key={lecture.id}> <div className='saerch-lecture-div'>
+             <img className='search-img' src={lecture.image} alt='lol' />
+            <h2 className='search-title'>{lecture.name}</h2></div></li>
+          
         ))}
-      </ul> */}
+       </div>
+      </div>
+      
     </div>
   )
 }

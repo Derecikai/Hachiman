@@ -3,6 +3,7 @@ import "./Home.css";
 import { useTypewriter,Cursor } from 'react-simple-typewriter';
 import { FaArrowRight } from "react-icons/fa";
 import CountUp from 'react-countup'
+import { Link } from 'react-router-dom';
 
 const Home1 = () => {
 
@@ -32,8 +33,10 @@ const [text] = useTypewriter({
   
 
      <div className='home1-buttons-container'>
-      <button className='btn-1'>Get Recomanded<FaArrowRight className='home1-icon'/></button>
-      <button className='btn-2'>Explore Catalog</button>
+     <Link to={"/signup"}><button className='btn-1'>Get Recomanded<FaArrowRight className='home1-icon'/></button>
+     </Link> 
+     <Link to={"/search"}> <button className='btn-2'>Explore Catalog</button>
+     </Link>
      </div>
      <div className='home-1img'></div>
      </div>
