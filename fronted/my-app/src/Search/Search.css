@@ -1,10 +1,20 @@
+@keyframes shine {
+        0% {
+            text-shadow: 0 0 10px #fff; /* Initial state */
+        }
+        100% {
+            text-shadow: 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #f0f, 0 0 70px #f0f; /* Final state */
+        }
+    }
+
+
 .hahah{
  position: relative;
  margin-top: 40px;
- width: 100px;
+ width: 250px;
  height: 40px;
  background-color: rgb(0, 0, 0);
- border-color: rgb(41, 219, 109);
+ border: 1px solid rgba(245, 245, 220, 0);
  border-radius: 9px;
  /* border-style: none; */
  font-family: "Roboto Condensed", sans-serif;
@@ -12,16 +22,17 @@
  color: aliceblue;
  transition: all ease-in 0.2s;
  font-weight: 200;
- 
+ outline: none;
 }
 .hahah:focus {
+  border-color: rgb(41, 219, 109);
  width: 300px;
   outline: none;
 
 }
 .search-container{
- background-image: url('https://cdn.dribbble.com/userupload/12194280/file/original-52540117c2e5fa9655fc9286506848b9.jpg?resize=640x480&vertical=center'); 
-    /* background-position: center; */
+ /* background-image: url('https://cdn.dribbble.com/userupload/12194280/file/original-52540117c2e5fa9655fc9286506848b9.jpg?resize=640x480&vertical=center');  */
+   
     background-size: cover; 
     background-repeat: no-repeat; 
  min-height: 900px;
@@ -29,8 +40,8 @@
 }
 .search-left{
  width: 300px;
- background-color: #000000;
- border-right:1px solid #ffffff;
+background-color: rgb(13 14 19 / 1);
+ border-right:1px solid rgba(128, 128, 128, 0.274) ;
  
  color: white;
  
@@ -50,7 +61,7 @@
   transition: all ease-in 0.2s;
 }
 .search-filter-txt:hover{
- background-color: #252525;
+background-color: rgb(24, 26, 34);
 }
 .arrow-filter{
  top: 14px;
@@ -67,7 +78,8 @@
 .search-right{
 min-height: 900px;
 width: 100%;
-background-color: #000000e5;
+background-color: rgb(13 14 19 / 1);
+
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -75,31 +87,58 @@ align-items: center;
 
 }
 .idk{
+  padding-top: 20px;
+  width: 100%;border-top: 1px solid rgba(128, 128, 128, 0.274);
  margin-top: 110px;
- display: grid;
-            grid-template-columns: repeat(4, 1fr); 
-            gap: 150px; 
+display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+        gap: 10px; /* Gap between grid items */
+            
             
 }
 
 .saerch-lecture-div{
-max-width: 400px;
-max-height: 200px;
+width: 90%;
+margin-left: 15px;
+min-height: 100px;
 transition: all ease-in-out 0.2s;
 cursor: pointer;
+background-color: rgb(17 18 24 / 1);
+border-radius: 6px;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+}
+.search-price{
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  margin: 0px;
+  color: white;
 }
 .saerch-lecture-div:hover{
- transform: scale(105%);
+ background-color: rgb(24, 26, 34);
+}
+.search-statuses{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .search-img{
- width: 157px;
- height: 157px;
+ width: 70px;
+ height: 70px;
  border-radius: 9px;
+ margin-left: 5px;
 }
 .search-title{
  color: rgb(255, 255, 255);
   font-family: "Roboto Condensed", sans-serif;
-  font-weight: 200;
+  font-weight: 300;
+  margin: 0px;
+  font-style: italic;
+  
+   
+  
 }
 li{
  list-style: none;

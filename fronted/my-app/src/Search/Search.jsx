@@ -53,15 +53,18 @@ const handleSearchChange = (event) => {
         <h3 className='search-filter-txt'>Filter by <MdArrowForwardIos className={`arrow-filter ${rotated ? 'rotated' : ''}`} onClick={toggleRotation} /></h3>
       </div>
       <div className='search-right'>
-      <input className='hahah' type="text" value={searchTerm} onChange={handleSearchChange}  />
-      <FaSearchDollar className='loophole' />
+      <input className='hahah' placeholder='Search here' type="text" value={searchTerm} onChange={handleSearchChange}  />
+     
       <div className='idk'>
         {lectures && lectures.map((lecture) => (
          
-          <li key={lecture.id}> <div className='saerch-lecture-div'>
-             <img className='search-img' src={lecture.image} alt='lol' />
-            <h2 className='search-title'>{lecture.name}</h2></div></li>
-          
+           <div key={lecture.id} className='saerch-lecture-div'>
+             <img className='search-img' src={lecture.image} alt='lecture-image' />
+             <div className='search-statuses'>
+            <h2 className='search-title'>{lecture.name}</h2>
+            <h3 className='search-price'>{lecture.price}$</h3></div>
+            
+          </div>
         ))}
        </div>
       </div>
