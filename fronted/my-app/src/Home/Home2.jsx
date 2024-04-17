@@ -10,7 +10,7 @@ const Home2 = () => {
 
   const fetchData = async () => {
     try{
-               const response = await axios.get('http://localhost:8000/api/v1/lectures/?sort=-rating&fields=name,image,author,summary,rating');
+               const response = await axios.get('http://localhost:8000/api/v1/lectures/?sort=-rating&fields=name,image,author,summary,rating&limit=6');
               //  console.log(response.data.data);
                setData(response.data.data);
        }

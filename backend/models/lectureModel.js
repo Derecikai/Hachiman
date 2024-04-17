@@ -42,6 +42,11 @@ const lectureSchema = new mongoose.Schema({
     createdAt: {
       type: Date,
       default: Date.now(),
+    },
+    brawler: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Brawler',
+        required: [true, 'A lecture must have a brawler']
     }
 
 },
@@ -63,6 +68,11 @@ lectureSchema.pre(/^find/,function(next){ //all the strings that start with find
 
    this.start = Date.now();
    
+this.populate({
+   path: 'brawler',
+   select: 'name image',
+  });
+
   next();
 });
 

@@ -22,7 +22,7 @@ const [isMenuOpen,setIsMenuOpen] = useState<boolean | null>(null);
      <div className='nav-left-text'>
      <h1>HACH
       <span>IMAN</span> </h1>
-      <button>Button</button></div>
+      </div>
       
       <div className='nav-right-icon'>
        <Link className='linktm' to={'/'}> <FaGithubAlt className='nav-icons' /></Link>

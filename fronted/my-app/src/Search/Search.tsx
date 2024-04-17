@@ -15,7 +15,13 @@ price: number,
 rating: number,
 secondName: string,
 summary: string,
-_id: string
+_id: string,
+brawler : {
+  name: string,
+  image: any
+  summary: string,
+  _id: string,
+}
 }[];
 
 const Search = () => {
@@ -78,7 +84,8 @@ const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
              <img className='search-img' src={lecture.image} alt='lecture-image' />  
              <div className='search-statuses'>
             <h2 className='search-title'>{lecture.name}</h2>
-            <h3 className='search-price'>{lecture.price}$</h3></div>
+            <h3 className='search-price'>{lecture.price}$</h3>
+             </div>
             
           </div>
         ))}

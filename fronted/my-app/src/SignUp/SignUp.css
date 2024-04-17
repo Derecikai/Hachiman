@@ -27,7 +27,7 @@ background-color: rgb(13 14 19 / 1);
 .left-sign{
   height: 100%;
   width: 100%;
-  background-image: url('https://cdn.dribbble.com/users/2538045/screenshots/18865464/media/9d9055063fcd1e5fa7ebd42f3bf86ba6.png?resize=640x480&vertical=center'); 
+  background-image: url('https://cdn.dribbble.com/userupload/6474057/file/original-bee34590f6885e3f3a6e2d304e6f1fb8.png?crop=288x0-1344x792&resize=640x480&vertical=centerhttps://cdn.dribbble.com/userupload/6474057/file/original-bee34590f6885e3f3a6e2d304e6f1fb8.png?crop=288x0-1344x792&resize=640x480&vertical=center'); 
     background-position: center;
     background-size: cover; 
     background-repeat: no-repeat; 
@@ -95,7 +95,7 @@ background-color: rgb(13 14 19 / 1);
         border-radius: 5px;
 
         background-color: #4d4c4c;
-        color: rgb(41, 219, 109);
+        color: #8088f3;
         font-family: "Raleway", sans-serif;
         font-weight: bold;
         font-size: 16px;
@@ -184,7 +184,7 @@ background-color: rgb(13 14 19 / 1);
   /* width: 325px; */
   border-radius: 8px;
   background-color: #000000;
-  color: rgb(41, 219, 109);
+  color: #8088f3;
   /* border: 1px solid #8087f3; */
   
 }

@@ -107,7 +107,7 @@ background-color: #000000;
 .btn-1{
   position: relative;
   padding-right: 30px;
-  background-color:  rgb(41, 219, 109);z-index: 2;
+  background-color:  #8088f3;z-index: 2;
   border: none;
   min-height: 45px;
   color: rgb(0, 0, 0);
@@ -121,7 +121,7 @@ background-color: #000000;
 }
 .btn-1:hover{
   background-color: black;
-  color: rgb(41, 219, 109);
+  color: #8088f3;
 }
 .home1-icon{
   top: 14px;
@@ -143,12 +143,12 @@ background-color: #000000;
   transition: all ease-in 0.2s;
   cursor: pointer;
   background-color: rgba(255, 235, 205, 0);
-  color: rgb(41, 219, 109);
+  color: #8088f3;
   
 }
 
 .btn-2:hover{
-  color: rgb(34, 172, 87);
+  color: #8088f3b7;
 }
 
 .home-1img
@@ -169,7 +169,7 @@ background-color: #000000;
    
 }
 .home-span{
-  color: rgb(41, 219, 109);
+  color: #8088f3;
 }
 /* .home1-shgadow{
   top: 0px;

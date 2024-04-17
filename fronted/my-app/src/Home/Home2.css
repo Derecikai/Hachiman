@@ -27,7 +27,7 @@
  height: 20px;
  top: 5px;
  margin-left: 7px;
- color: rgb(41, 219, 109);
+ color: #8088f3;
 }
 .container-data{
  margin-left: 60px;
@@ -56,7 +56,7 @@
  cursor: pointer;
  background-color: rgb(27, 27, 27);
  transform: translateY(-3px);
- box-shadow: 4px 4px 1px 4px rgb(41, 219, 109);
+ box-shadow: 4px 4px 1px 4px #8088f3;
 }
 .home2-upper{
  display: flex;
