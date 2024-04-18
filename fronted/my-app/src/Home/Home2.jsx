@@ -33,7 +33,7 @@ const Home2 = () => {
     <Link className='home2-top2'>See All <FaArrowRight className='home2-arrow' /></Link>
     <div className='container-data'>
     {data && data.map(item => (
-      <div className='data-home2'>
+      <a href={`lecture/${item.id}`} className='data-home2'>
         <div className='home2-upper'>
         <img className='home2-img' src={item.image} alt={item.name} key={item.id} />
        <div className='home1-starrate'>
@@ -43,7 +43,7 @@ const Home2 = () => {
         </div>
        <div className='home2-degaj'> <h1 className='home2-h1'>{item.name}</h1>
         <p className='home2-p'>{item.summary}</p></div>
-        </div>
+        </a>
       ))}
       </div>
     </div>

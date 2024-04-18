@@ -80,14 +80,14 @@ const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
       <div className='idk'>
         {lectures && lectures.map((lecture) => (
          
-           <div key={lecture.id} className='saerch-lecture-div'>
+           <a  key={lecture.id} href={`lecture/${lecture.id}`} className='saerch-lecture-div'>
              <img className='search-img' src={lecture.image} alt='lecture-image' />  
              <div className='search-statuses'>
             <h2 className='search-title'>{lecture.name}</h2>
             <h3 className='search-price'>{lecture.price}$</h3>
              </div>
             
-          </div>
+          </a>
         ))}
        </div>
       </div>

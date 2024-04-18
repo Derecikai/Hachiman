@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState,useEffect } from 'react';
 import './Navbar.css';
 import { CiMenuBurger,CiDumbbell } from "react-icons/ci";
 import {Link} from 'react-router-dom'
@@ -7,7 +7,25 @@ import { CiLogin } from "react-icons/ci";
 
 const Navbar:FC = () => {
 
+const [scrolled,setScrolled] = useState<boolean>(false);
 const [isMenuOpen,setIsMenuOpen] = useState<boolean | null>(null);
+
+useEffect(() =>{
+
+
+    const handleScroll = () => {
+      const isScrolled: boolean = window.scrollY > 125;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+  },[])
+
 
 
  const handleToggleMenu = () => {
@@ -17,7 +35,9 @@ const [isMenuOpen,setIsMenuOpen] = useState<boolean | null>(null);
 
 
   return (
-    <div className='nav-container'>
+    
+    <div className="nav-placeholder" >
+    <div className={`nav-container ${scrolled ? "scrolled" : ""}`}>
      
      <div className='nav-left-text'>
      <h1>HACH
@@ -39,9 +59,8 @@ const [isMenuOpen,setIsMenuOpen] = useState<boolean | null>(null);
                         </div>
                     )}
                 </div>
-      
       </div>
-     
+      </div>
      </div>
   )
 }

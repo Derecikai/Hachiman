@@ -1,0 +1,114 @@
+.lecture-container{
+ min-height: 110vh;
+ width: 100%;
+ background-color: rgb(13 14 19 / 1);
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+
+}
+.first-doc{
+ min-height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 1px solid rgba(128, 128, 128, 0.274);
+}
+.first-info1{
+ display: flex;
+ flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.brawler-guy{
+ width: 170px;
+ height: 170px;
+ border-radius: 25px;
+ margin-bottom: 20px;
+}
+.first-info1-name{
+font-family: "Anton", sans-serif;
+ color: white;
+ font-weight: 300;
+ padding: 0px;
+ margin: 0px;
+}
+.first-info1-author{
+ font-family: 'Oswald', sans-serif;
+ color: white;
+ font-weight: 200;
+  padding: 0px;
+ margin: 0px;
+ font-size: 20px;
+}
+.first-info1-summary{
+ margin-top: 20px;
+ font-family: 'Oswald', sans-serif;
+ color: rgb(189, 188, 188);
+ max-width: 340px;
+}
+.first-info1-buttons{
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-top: 40px;
+}
+.first-info1-button{
+ border-style: none;
+ height: 33px;
+ margin-left: 20px;
+ min-width: 120px;
+ border-radius: 9%;
+ background-color: rgb(13 14 19 / 1);
+ border: 1px solid rgba(128, 128, 128, 0.274);
+ border-radius: 9px;
+ color: white;
+ cursor: pointer;
+position: relative;
+}
+.first-info1-button:hover{
+ background-color: black;
+}
+.specialuwu{
+ position: relative;
+ transition: all ease-in 0.2s;
+ /* padding-left: 3px; */
+}
+.specialuwu:hover{
+ background-color: white;
+ color: #8088f3;
+ transform: translateY(-3px);
+}
+.icon-1-first{
+ position: absolute;
+ width: 20px;
+ height: 20px;
+ top: 6px;
+left: 15px;
+ z-index: 100000;
+}
+.icon-2-first{
+ position: absolute;
+ width: 20px;
+ height: 20px;
+ top: 6px;
+ left: 15px;
+ z-index: 100000;
+}
+.icon-3-first{
+ position: absolute;
+ width: 20px;
+ height: 20px;
+ top: 6px;
+left: 15px;
+ z-index: 100000;
+}
+.second-doc{
+ flex: 1;
+}
+.third-doc{
+flex: 1;
+}

@@ -11,6 +11,7 @@ import SignUp from './SignUp/SignUp';
 import GetAll from './GetAll';
 import Home from './Home/Home';
 import Search from './Search/Search';
+import Lecture from "./Lecture/Lecture";
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<GetAll />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search />} />       
+        <Route path="lecture/:id" element={<Lecture />} />
        
 
         {/* /chatroom/${persdata.sub} */}
