@@ -3,50 +3,84 @@ const mongoose = require('mongoose')
 
 const lectureSchema = new mongoose.Schema({
 
-    name:{
+  name:{
         type: String,
         required: [true,'A lecture must have a name'],
         unique: true,
         trim: true,
     },
-     image:{
+  image:{
       type: String,
       required: [true,'A lecture should have an image'],
      },
 
-    summary:{
+  summary:{
       type: String,
       trim: true
     },
     
-    firstName:{
-     type: String,
-     required: [true,'A lecture must have an uniqe tutor']
+  // firstName:{
+  //    type: String,
+  //    required: [true,'A lecture must have an uniqe tutor']
+  //   },
+
+  // secondName:{
+  //    type: String,
+  //    required: [true,'A lecture must have an uniqe tutor']
+  //   },
+    
+  mentor:{
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: [true, "A lecture must have a ,mentor"]
     },
 
-     secondName:{
-     type: String,
-     required: [true,'A lecture must have an uniqe tutor']
-    },
-
-    rating:{
+  rating:{
         type: Number,
         required: [true,'A lecture must have a rating'],
         default: 4.5
     },
+  sesionStart: {
+      type: Number,
+      required:  [true,'A lecture must have a session start price'],
+    },
 
-    price:{
+  quote: {
+    type: String,
+    trim: true,
+    required:  [true,'A lecture must have a quote'],
+    },
+
+  topMentor:{
+    type: Boolean,
+    default: false,
+    },
+
+  price:{
         type: Number,
         required: [true,'A lecture must have a price'],
     },
-    createdAt: {
+  clients:{
+     type: Number,
+     default: 0
+  },
+
+  createdAt: {
       type: Date,
       default: Date.now(),
     },
-    brawler: {
+  achivments: {
+      type: Number,
+      default: 0
+    },
+  brawler: {
         type: mongoose.Schema.ObjectId,
         ref: 'Brawler',
         required: [true, 'A lecture must have a brawler']
+    },
+  review: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Review',
     }
 
 },
@@ -56,11 +90,11 @@ const lectureSchema = new mongoose.Schema({
 });
 
 
-lectureSchema.virtual('author').get(function() {
+// lectureSchema.virtual('author').get(function() {
 
-  return this.firstName + ' ' + this.secondName;
+//   return this.firstName + ' ' + this.secondName;
 
-});
+// });
 
 lectureSchema.pre(/^find/,function(next){ //all the strings that start with find
   //  this.find({ secretTour: { $ne: true } });
@@ -71,6 +105,11 @@ lectureSchema.pre(/^find/,function(next){ //all the strings that start with find
 this.populate({
    path: 'brawler',
    select: 'name image',
+  });
+
+this.populate({
+   path: 'mentor',
+   select: 'username email image',
   });
 
   next();
