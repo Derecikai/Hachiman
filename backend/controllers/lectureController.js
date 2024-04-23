@@ -1,4 +1,5 @@
 const Lecture = require('../models/lectureModel');
+const Review = require('../models/reviewModel');
 const { all } = require('../routes/lectureRoutes');
 const ApiFeatures = require('../utils/apiFeatures');
 const AppError = require('../utils/appError');
@@ -64,11 +65,16 @@ try{
 try{
 
    const newLec = await Lecture.findById(req.params.id);
+   const reviews = await Review.find({lecture: req.params.id});
+   newLec._doc.reviews = reviews;
+   console.log("REVIEWS ARE::: !!! ",reviews);
+   console.log("This is blabla:", newLec);
+
+   newLec.reviews = reviews;
 
     res.status(200).json({
      status: "succes",
-     data: newLec
-     
+     data:newLec
     })
  }
  catch(err)

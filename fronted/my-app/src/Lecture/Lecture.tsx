@@ -9,11 +9,23 @@ import { MdBookmarkAdd } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
 import { RiRefund2Fill } from "react-icons/ri";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import Lecture3 from './Lecture3';
 
 interface Brawler {
   _id: string;
   name: string;
   image: string;
+}
+
+interface Review{
+  id: string,
+  rating: number,
+  review: string,
+  user: {
+    username: string,
+    _id: string,
+    image ?: string
+  }
 }
 
 interface Mentor {
@@ -25,26 +37,28 @@ interface Mentor {
 
 interface LectureData {
 
-  achievements: number;
-  brawler: Brawler;
-  clients: number;
-  createdAt: string;
-  id: string;
-  image: string;
-  mentor: Mentor;
-  name: string;
-  price: number;
-  quote: string;
-  rating: number;
-  sesionStart: number;
-  summary: string;
-  topMentor: boolean;
-  status: string;
+  achivments: number,
+  brawler: Brawler,
+  clients: number,
+  createdAt: string,
+  id: string,
+  image: string,
+  mentor: Mentor,
+  name: string,
+  price: number,
+  quote: string,
+  rating: number,
+  sesionStart: number,
+  summary: string,
+  topMentor: boolean,
+  status: string,
+  reviews: Review[] | [],
 }
 
-interface Lecture2Props {
-  image: string;
-}
+// interface Lecture2Props {
+//   image: string,
+//   name: string
+// }
 const Lecture:FC = () => {
 
  const [data,setData] = useState<LectureData | null>(null);
@@ -102,7 +116,7 @@ getData();
 </div>
 <div className='first-info1-details-1'>
   <h4><IoIosStarOutline className='first-info1-details-1-logo smthlo3'/> Rating: </h4>
-  <h4 className='smthlo3'>{data?.rating}</h4>
+  <h4 className='smthlo3'>{data?.rating} Stars</h4>
 </div>
 <div className='first-info1-details-1'>
   <h4><RiRefund2Fill className='first-info1-details-1-logo smthlo'/> Refund Policy: </h4>
@@ -116,11 +130,19 @@ getData();
      <div className='second-doc'>
       {data && 
       <Lecture2 
-       image={data.image} 
+       image={data.image}
+       name={data.brawler.name} 
       />
       }
      </div>
-     <div className='third-doc'></div>
+     <div className='third-doc'>
+      <Lecture3
+       clients={data?.clients as number}
+       reviews={data?.reviews as Review[]}
+       quote={data?.quote as string}
+  achivments={data?.achivments as number}
+        />
+     </div>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const Review = require('./reviewModel')
 
 
 const lectureSchema = new mongoose.Schema({
@@ -6,7 +7,7 @@ const lectureSchema = new mongoose.Schema({
   name:{
         type: String,
         required: [true,'A lecture must have a name'],
-        unique: true,
+
         trim: true,
     },
   image:{
@@ -77,10 +78,6 @@ const lectureSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'Brawler',
         required: [true, 'A lecture must have a brawler']
-    },
-  review: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Review',
     }
 
 },
@@ -101,7 +98,13 @@ lectureSchema.pre(/^find/,function(next){ //all the strings that start with find
 
 
    this.start = Date.now();
-   
+
+// this.populate({
+//     path: 'reviews',
+//     select: 'user review',
+//   });
+
+
 this.populate({
    path: 'brawler',
    select: 'name image',
@@ -111,6 +114,18 @@ this.populate({
    path: 'mentor',
    select: 'username email image',
   });
+
+// this.populate([{
+//     path: 'reviews',
+//     select: 'user review',
+//   },{
+//    path: 'brawler',
+//    select: 'name image',
+//   },{
+//    path: 'mentor',
+//    select: 'username email image',
+//   }]);
+
 
   next();
 });

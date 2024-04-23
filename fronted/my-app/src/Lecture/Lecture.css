@@ -9,12 +9,14 @@
 }
 .first-doc{
  min-height: 100vh;
+ min-width: auto;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   border-right: 1px solid rgba(128, 128, 128, 0.274);
+  /* border-left: 1px solid #8088f3; */
 }
 .first-info1{
   margin-top: 40px;
@@ -48,12 +50,14 @@ font-family: "Anton", sans-serif;
 .first-info1-summary{
  margin-top: 20px;
  font-family: 'Oswald', sans-serif;
- color: rgb(189, 188, 188);
- max-width: 350px;
- background-color: black;
- padding: 7px;
- border: 1px solid rgba(128, 128, 128, 0.274);
+ color: rgb(217, 218, 217);
+ max-width: 400px;
+ /* background-color: black; */
+ padding: 10px;
+ border: 1px solid rgba(231, 231, 231, 0.404);
+ background: linear-gradient(153deg, rgba(0,0,0,1) 50%, rgba(50,51,60,1) 100%);
  border-radius: 9px;
+ transition: all ease-in-out 0.5s;
 }
 .first-info1-buttons{
  width: 100%;
@@ -124,7 +128,7 @@ left: 11px;
   border-top: 1px solid rgba(128, 128, 128, 0.274);
  color: rgb(156, 155, 155);
 }
-.first-info1-details-1
+.first-info1-details-1 
 {
 display: flex;
 justify-content: space-between;
@@ -132,6 +136,10 @@ font-family: "Barlow", sans-serif;
   font-weight: thin;
   position: relative;
   padding-left: 32px;
+}
+.first-info1-details-1 h4{
+  font-weight: 500;
+  font-style: italic;
 }
 .first-info1-details-1-logo{
   width: 20px;

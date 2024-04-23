@@ -1,10 +1,55 @@
 .first-info-2{
  min-height: 100vh;
  border-right: 1px solid rgba(128, 128, 128, 0.274);
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.first-info-2-session
+{
+  display: flex;
+ justify-content: center;
 }
 .flo-cmp-132{
- width: 370px;
- height: 370px;
- border-radius: 10%;
- margin-left: 80px;
+ width: 190px;
+ height: 190px;
+ border-radius: 9px;
+ margin-left: 15px;
+ margin-top: 40px;
+}
+.first-info-2-brawler-name{
+
+  font-size: 52px;
+  background: -webkit-linear-gradient(45deg, #ffffff , #9e9e9e 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Oswald', sans-serif;
+  font-weight:200;
+  margin-left: 10px;
+}
+section{
+ min-height: 53vh;
+ background-color: rgba(189, 185, 185, 0);
+ width: 92%;
+}
+.faq{
+ max-width: 100%;
+ background: linear-gradient(153deg, rgba(0,0,0,1) 50%, rgba(50,51,60,1) 100%);
+ border-radius: 9px;
+ padding: 0px 16px;
+ margin-top: 2px;
+ cursor: pointer;
+ color: white;
+  font-family: 'Oswald', sans-serif;
+  font-weight:100;
+}
+.answer{
+ max-height: 0;
+ overflow: hidden;
+}
+.faq.active .answer{
+ background-color: rgba(250, 235, 215, 0);
+ padding: 10px;
+max-height: 300px;
+transition: max-height ease-in 0.3s;
 }
