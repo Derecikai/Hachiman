@@ -26,12 +26,12 @@ const {register, handleSubmit, formState: {errors},}= useForm({
   resolver: yupResolver(schema),
 });
 
-  const [text] = useTypewriter({
-    words: ['JO SI SAMI SEXY', 'A DESIGNER?', 'AN AI TEACHER?', 'A DEVELOPER?'],
-    loop: {},
-    typeSpeed: 170,
-    deleteSpeed: 70
-  })
+  // const [text] = useTypewriter({
+  //   words: ['JO SI SAMI SEXY', 'A DESIGNER?', 'AN AI TEACHER?', 'A DEVELOPER?'],
+  //   loop: {},
+  //   typeSpeed: 170,
+  //   deleteSpeed: 70
+  // })
 
 
   const onSubmit = async (data) => {

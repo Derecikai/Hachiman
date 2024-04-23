@@ -1,7 +1,8 @@
 const express = require('express');
 const userRouter = require('./routes/userRoutes');
 const lectureRouter = require('./routes/lectureRoutes');
-const reviewRouter = require('./routes/reviewRoutes')
+const reviewRouter = require('./routes/reviewRoutes');
+const brawlerRoute = require('./routes/brawlerRoute');
 const app = express();
 const globalErrorHandler = require('./controllers/errorController')
 const cors = require('cors'); // Import cors
@@ -15,6 +16,7 @@ app.use(cors());
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/lectures', lectureRouter);
 app.use('/api/v1/reviews', reviewRouter);
+app.use('/api/v1/brawlers', brawlerRoute)
 
 
 app.all('*', (req,res,next) =>{

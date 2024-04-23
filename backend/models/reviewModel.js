@@ -27,7 +27,8 @@ const reviewSchema = new mongoose.Schema({
       user:{
        type: mongoose.Schema.ObjectId,
        ref: "User",
-       required: [true,"A review should have an User"]
+       required: [true,"A review should have an User"],
+       unique: true
       }
 
 },
@@ -35,14 +36,18 @@ const reviewSchema = new mongoose.Schema({
   toObject: { virtuals: true}
  })
 
- reviewSchema.index({tour: 1, user: 1}, { unique: true });
+ reviewSchema.index({lecture: 1, user: 1}, { unique: true });
 
- reviewSchema.pre(/^find/, function(next){
+ reviewSchema.pre(/^find/,function(next){
 
+  this.populate({
+   path: 'lecture',
+   select: 'name',
+  });
 
   this.populate({
    path: 'user',
-   select: 'username',
+   select: 'username image',
   });
   next();
  })

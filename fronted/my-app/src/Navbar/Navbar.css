@@ -1,16 +1,29 @@
-.nav-container{
- position: relative;
- min-width: 100vh;
+.nav-placeholder{
+   min-width: 100vh;
  min-height:  60px;
+ background-color: #000000;
+ position: relative;
+ z-index: 1000000;
+}
+.nav-container{
+ position: fixed;
+ min-width: 1600px;
+ min-height: 60px;
  backdrop-filter: blur(10px); 
   background-color: #000000;
   color: white; /* Add text color as needed */
   display: flex;
   align-items: center;
   justify-content: space-between;
-transition: border-bottom 0.3s ease; /* Add a transition effect for smoother appearance */
+transition: all 0.3s ease; /* Add a transition effect for smoother appearance */
   border-bottom: 2px solid transparent; 
   
+}
+.nav-container.scrolled {
+  backdrop-filter: blur(30px);
+  background-color: #8088f334;
+  min-height: 55px; /* Adjust the alpha value for transparency */
+  z-index: 1000000;
 }
 
 
@@ -19,14 +32,14 @@ transition: border-bottom 0.3s ease; /* Add a transition effect for smoother app
 }
 
 .nav-left-text{
- font-size: 12px;
+ font-size: 9px;
  position: relative;
  font-family: "Raleway", sans-serif;
  color: rgb(255, 255, 255);
  left: 30px;
 }
 span{
- color: rgb(41, 219, 109);
+ color: #8088f3;
 }
 .nav-right-icon{
   margin-right: 100px;

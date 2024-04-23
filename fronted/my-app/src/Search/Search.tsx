@@ -1,16 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, ReactEventHandler,ChangeEvent } from 'react';
 import './Search.css'
 import { MdArrowForwardIos } from "react-icons/md";
 import { FaSearchDollar } from "react-icons/fa";
 
+
+type dataRecived = {
+author: string,
+createdAt: string,
+firstName: string,
+id: string,
+image: string,
+name: string,
+price: number,
+rating: number,
+secondName: string,
+summary: string,
+_id: string,
+brawler : {
+  name: string,
+  image: any
+  summary: string,
+  _id: string,
+}
+}[];
+
 const Search = () => {
 
-   const [searchTerm, setSearchTerm] = useState('');
-  const [lectures, setLectures] = useState([]);
-   const [rotated, setRotated] = useState(false);
+   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [lectures, setLectures] = useState<dataRecived | []>([]);
+   const [rotated, setRotated] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       let response
       try {
         if(searchTerm === ""){
@@ -24,6 +45,7 @@ const Search = () => {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log(data.data)
         setLectures(data.data);
        
       } catch (error) {
@@ -38,7 +60,7 @@ const Search = () => {
     // }
   }, [searchTerm]);
 
-const handleSearchChange = (event) => {
+const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
@@ -58,13 +80,14 @@ const handleSearchChange = (event) => {
       <div className='idk'>
         {lectures && lectures.map((lecture) => (
          
-           <div key={lecture.id} className='saerch-lecture-div'>
-             <img className='search-img' src={lecture.image} alt='lecture-image' />
+           <a  key={lecture.id} href={`lecture/${lecture.id}`} className='saerch-lecture-div'>
+             <img className='search-img' src={lecture.image} alt='lecture-image' />  
              <div className='search-statuses'>
             <h2 className='search-title'>{lecture.name}</h2>
-            <h3 className='search-price'>{lecture.price}$</h3></div>
+            <h3 className='search-price'>{lecture.price}$</h3>
+             </div>
             
-          </div>
+          </a>
         ))}
        </div>
       </div>

@@ -1,7 +1,8 @@
 const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator') //npm i validator
-const bcrypt = require('bcryptjs') //npm i bcryptjs
+const bcrypt = require('bcryptjs'); //npm i bcryptjs
+const { type } = require('os');
 
 const userSchema = new mongoose.Schema({
 
@@ -16,6 +17,11 @@ email: {
  username: {
   type: String,
    required: [true,'A user must have a name'],
+ },
+ 
+ image:{
+  type: String,
+  required: [true,"A user must have an image"],
  },
  
   password: {
