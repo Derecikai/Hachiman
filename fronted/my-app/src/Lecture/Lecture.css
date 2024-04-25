@@ -1,218 +1,63 @@
-.lecture-container{
- max-height: 100vh;
- min-width: 100vh;
- background-color: rgb(0, 0, 0);
-  background-image: url('https://wallpapers.com/images/hd/travis-scott-wallpaper-hiphopimages-af6gjuvuj8mdh5q7.webp');
-    background-size: cover ;
-    background-attachment: fixed; 
- display: flex;
- align-items: center;
- overflow: hidden;
-}
-.first-doc{
-  position: relative;
-   /* Adjust the blur level as necessary to match your design */
-  backdrop-filter: blur(36px); 
-  /* Using a white background with lower opacity for the glass effect */
-  background-color: rgba(0, 0, 0, 0.178);
-  /* Rounded corners */
-  border-radius: 10px; 
-  /* Adding a border could enhance the glassy look, adjust color and opacity as needed */
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  /* Box shadow for a subtle depth effect, optional */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Padding inside the container */
+.lecture-container {
   padding: 20px;
-  /* Margin around the container, adjust as necessary */
-  margin: 3px;
-  /* Optional: transition for a smooth effect on state changes like hover */
-  transition: all 0.3s ease;
- min-height: 100vh;
- max-width: 500px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  border-right: 1px solid rgba(128, 128, 128, 0.274);
-  margin-left: 0px;
-  z-index: 2;
-}
-.first-info1{
-  margin-top: 40px;
- display: flex;
- flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.brawler-guy{
- width: 170px;
- height: 170px;
-border-radius: 25%;
- margin-bottom: 20px;
- box-shadow: 0px 0px 20px 1px #ffffff;
- 
-}
-.first-info1-name{
-font-family: "Anton", sans-serif;
- color: white;
- font-weight: 300;
- padding: 0px;
- margin: 0px;
-}
-.first-info1-author{
- font-family: 'Oswald', sans-serif;
- color: white;
- font-weight: 200;
-  padding: 0px;
- margin: 0px;
- font-size: 20px;
-}
-.first-info1-summary{
- margin-top: 20px;
- font-family: 'Oswald', sans-serif;
- color: rgb(217, 218, 217);
- max-width: 400px;
- /* background-color: black; */
- padding: 10px;
- border-radius: 9px;
- transition: all ease-in-out 0.5s;
-  background-color: rgb(22, 22, 31); /* Or any grey shade you prefer */
-  border-radius: 15px; /* Rounded corners */
-  padding: 10px;
-  margin: 10px 0; /* Adjust as needed for spacing */
-  border: 1px solid grey; /* Subtle border */
-}
-.first-info1-buttons{
- width: 100%;
- display: flex;
- align-items: center;
- justify-content: center;
- margin-top: 40px;
-}
-.first-info1-button{
-  text-align: left;
-  padding-left: 40px;
- border-style: none;
- height: 33px;
- margin-left: 20px;
- min-width: 150px;
- border-radius: 9%;
- background-color: rgb(13 14 19 / 1);
- border: 1px solid rgba(128, 128, 128, 0.274);
- border-radius: 9px;
- color: white;
- cursor: pointer;
-position: relative;
-}
-.first-info1-button:hover{
- background-color: black;
-}
-.specialuwu{
- position: relative;
- transition: all ease-in 0.2s;
- /* padding-left: 3px; */
-}
-.specialuwu:hover{
- background-color: #8088f3;
- color: white;
- transform: translateY(-3px);
-}
-.icon-1-first{
- position: absolute;
- width: 20px;
- height: 20px;
- top: 6px;
-left: 11px;
- z-index: 100000;
-}
-.icon-2-first{
- position: absolute;
- width: 20px;
- height: 20px;
- top: 6px;
- left: 11px;
- z-index: 100000;
-}
-.icon-3-first{
- position: absolute;
- width: 20px;
- height: 20px;
- top: 6px;
-left: 11px;
- z-index: 100000;
-}
-.first-info1-details{
-  margin-top: 20px;
-  padding: 8px;
-  background-color: #ffffff00;
-  width: 65vh;
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid rgba(128, 128, 128, 0.274);
- color: rgb(43, 43, 43);
-}
-.first-info1-details-1 
-{
-display: flex;
-justify-content: space-between;
-font-family: "Barlow", sans-serif;
-  font-weight: thin;
-  position: relative;
-  padding-left: 32px;
-}
-.first-info1-details-1 h4{
-  font-weight: 500;
-  font-style: italic;
-}
-.first-info1-details-1-logo{
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 21px;
-  left: 3px;
-}
-.smthlo{
-  color: rgb(30, 211, 150);
-}
-.smthlo2{
-  color: #8088f3;
-}
-.smthlo3{
-  color: #cfe220;
-}
-.uwuflocp{
-  margin-left: 0px;
-}
-.second-doc{
- flex: 1;
-}
-.third-doc{
-flex: 1;
-}
-.second-slide {
-
-  transform: translateX(-200%);
-  transition: transform 0.5s ease-in-out;
+  height: 90vh;
+  min-width: 100vh;
+  background-image: url('https://wallpapers.com/images/hd/travis-scott-wallpaper-hiphopimages-af6gjuvuj8mdh5q7.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  display: grid;
+  grid-template-columns: 0.7fr repeat(8, 1fr); /* Define 9 equal-width columns */
+  grid-template-rows: repeat(8, 1fr); /* Define 8 equal-height rows */
+  grid-gap: 6px 6px;
+  overflow: hidden;
 }
 
-.second-slide-visible {
-   
-  transform: translateX(0%);
+.yolo-1{
+  width: 100%;
+  height: 100%;
+  grid-row: 1 /4;
+  grid-column: 1/3;
+  background-color: #8088f3;
+  border-radius: 20px;
+  /* width: 300px;
+  height: 290px; */
 }
-.cool-button{
-position: absolute;
-left: 480px;
-top: 140px;
-z-index: 3;
-border-radius: 9px;
-padding: 10px;
-border: none;
-background-color: rgba(0, 0, 0, 0);
-backdrop-filter: blur(36px); 
-color: rgb(230, 34, 8);
-border: 1px solid rgb(0, 0, 0);
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.yolo-2{
+  width: 66%;
+  height: 179px;
+grid-row: 1/3;
+  grid-column: 3/5;
+  background-color: rgb(44, 44, 44);
+  border-radius: 20px;
+}
+.yolo-3{
+  width: 66%;
+grid-row: 3;
+  grid-column: 3/5;
+ background-color: rgb(44, 44, 44);
+  border-radius: 20px;
+}
+.yolo-4{
+grid-row: 4/6;
+  grid-column: 1/3;
+background-color: rgb(44, 44, 44);
+  border-radius: 20px;
+}
+.yolo-5{
+grid-row: 6/-1;
+  grid-column: 1/5;
+  background-color: rgba(44, 44, 44, 0);
+  border-radius: 20px;
+  backdrop-filter: blur(26px);
+  height: 220px;
+  margin-top: 30px;
+  
+}
+.yolo-6{
+  grid-row: 1/4;
+  grid-column: 8/10;
+  background-color: rgb(44, 44, 44);
+  border-radius: 20px;
 }
 
 

@@ -83,7 +83,14 @@ const {id} = useParams();
     setIsSecondSlideVisible(!isSecondSlideVisible);
   };
 
-
+{/* <div className='second-doc'>
+     {data && 
+      <Lecture2 
+       image={data.image}
+       name={data.brawler.name} 
+      />
+      } 
+     </div> */}
 
  useEffect(() => {
 getData();
@@ -93,66 +100,12 @@ getData();
 
   return (
     <div className='lecture-container'>
-     <div className='first-doc'>
-
-      {data && <div className='first-info1'>
-       <img className='brawler-guy' src={data?.mentor?.image} alt="" />
-      <h1 className='first-info1-name'> { data?.name}</h1>
-      <h4 className='first-info1-author'>Author: <span>{ data?.mentor?.username}</span></h4>
-      <p className='first-info1-summary'>{data.summary}</p>
-      </div>}
-
-     <div className='first-info1-buttons'>
-      <button className='first-info1-button uwuflocp'>
-        <IoMdPersonAdd className='icon-1-first' />
-         Follow</button>
-      <button className='first-info1-button specialuwu'>
-       <FaMoneyBillWave className='icon-2-first'/> Subscribe</button>
-      <button className='first-info1-button'>
-       <MdBookmarkAdd className='icon-3-first'/>
-       Save</button>
-</div>
-
-<div className='first-info1-details'>
-
-<div className='first-info1-details-1'>
-  <h4> <MdOutlineAttachMoney className='first-info1-details-1-logo smthlo2'/> Sesion stars at: </h4>
-  <h4><span>{data?.sesionStart}$</span></h4>
-</div>
-<div className='first-info1-details-1'>
-  <h4><IoIosStarOutline className='first-info1-details-1-logo smthlo3'/> Rating: </h4>
-  <h4 className='smthlo3'>{data?.rating} Stars</h4>
-</div>
-<div className='first-info1-details-1'>
-  <h4><RiRefund2Fill className='first-info1-details-1-logo smthlo'/> Refund Policy: </h4>
-  <h4 className='smthlo'>Flexibile</h4>
-</div>
-
-
-</div>
-
-     </div>
-     <button className='cool-button' onClick={toggleSecondSlide}>
-        {isSecondSlideVisible ? 'X' : '>'}
-      </button>
-     {/* <div className='second-doc'>
-     {data && 
-      <Lecture2 
-       image={data.image}
-       name={data.brawler.name} 
-      />
-      } 
-     </div> */}
-     <div className={`second-slide ${isSecondSlideVisible ? 'second-slide-visible' : ''}`}>  
-     <div className='third-doc'>
-      <Lecture3
-       clients={data?.clients as number}
-       reviews={data?.reviews as Review[]}
-       quote={data?.quote as string}
-  achivments={data?.achivments as number}
-        />
-     </div>
-    </div>
+    <div className='yolo-1'></div>
+    <div className='yolo-2'></div>
+    <div className='yolo-3'></div>
+    <div className='yolo-4'></div>
+    <div className='yolo-5'></div>
+    <div className='yolo-6'></div>
     </div>
   )
 }

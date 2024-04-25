@@ -14,7 +14,7 @@ useEffect(() =>{
 
 
     const handleScroll = () => {
-      const isScrolled: boolean = window.scrollY > 125;
+      const isScrolled: boolean = window.scrollY > 15;
       setScrolled(isScrolled);
     };
 
