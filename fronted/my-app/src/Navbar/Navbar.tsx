@@ -43,7 +43,6 @@ useEffect(() =>{
      <h1>HACH
       <span>IMAN</span> </h1>
       </div>
-      
       <div className='nav-right-icon'>
        <Link className='linktm' to={'/'}> <FaGithubAlt className='nav-icons' /></Link>
         

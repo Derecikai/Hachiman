@@ -62,6 +62,7 @@ interface LectureData {
 const Lecture:FC = () => {
 
  const [data,setData] = useState<LectureData | null>(null);
+ const [isSecondSlideVisible, setIsSecondSlideVisible] = useState<boolean>(false);
 const {id} = useParams();
  
  const getData = async ():Promise<void> =>{   
@@ -77,6 +78,10 @@ const {id} = useParams();
       }
 
  }
+  
+ const toggleSecondSlide = () => {
+    setIsSecondSlideVisible(!isSecondSlideVisible);
+  };
 
 
 
@@ -127,14 +132,18 @@ getData();
 </div>
 
      </div>
-     <div className='second-doc'>
-      {data && 
+     <button className='cool-button' onClick={toggleSecondSlide}>
+        {isSecondSlideVisible ? 'X' : '>'}
+      </button>
+     {/* <div className='second-doc'>
+     {data && 
       <Lecture2 
        image={data.image}
        name={data.brawler.name} 
       />
-      }
-     </div>
+      } 
+     </div> */}
+     <div className={`second-slide ${isSecondSlideVisible ? 'second-slide-visible' : ''}`}>  
      <div className='third-doc'>
       <Lecture3
        clients={data?.clients as number}
@@ -143,6 +152,7 @@ getData();
   achivments={data?.achivments as number}
         />
      </div>
+    </div>
     </div>
   )
 }

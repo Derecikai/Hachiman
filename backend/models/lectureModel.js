@@ -7,7 +7,6 @@ const lectureSchema = new mongoose.Schema({
   name:{
         type: String,
         required: [true,'A lecture must have a name'],
-
         trim: true,
     },
   image:{

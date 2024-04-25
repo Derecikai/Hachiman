@@ -9,8 +9,7 @@
  position: fixed;
  min-width: 1600px;
  min-height: 60px;
- backdrop-filter: blur(10px); 
-  background-color: #000000;
+  background-color: #00000000;
   color: white; /* Add text color as needed */
   display: flex;
   align-items: center;
@@ -21,8 +20,8 @@ transition: all 0.3s ease; /* Add a transition effect for smoother appearance */
 }
 .nav-container.scrolled {
   backdrop-filter: blur(30px);
-  background-color: #8088f334;
-  min-height: 55px; /* Adjust the alpha value for transparency */
+  background-color: #ffffff00;
+  min-height: 55px; /* Maintain the navbar height regardless of the dropdown state */
   z-index: 1000000;
 }
 
@@ -41,12 +40,12 @@ transition: all 0.3s ease; /* Add a transition effect for smoother appearance */
 span{
  color: #8088f3;
 }
-.nav-right-icon{
+.nav-right-icon {
+  position: relative; /* This ensures the dropdown is positioned in relation to this container */
   margin-right: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 .linktm{
   display: inline-block;
@@ -60,10 +59,21 @@ span{
 .nav-icons:hover{
   transform: translateY(-3px);
 }
-.dropdown-content{
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  
+  top: 100%;
 
- 
-  width: 100px;
-  height: 100px;
-  background-color: antiquewhite;
+  right: 0; 
+  
+  width: 70px; 
+  background-color: rgb(255, 255, 255);
+  z-index: 10; 
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); 
+  border-radius: 4px; 
+  overflow: hidden; 
+  color: #8088f3;
+  text-decoration: none;
 }

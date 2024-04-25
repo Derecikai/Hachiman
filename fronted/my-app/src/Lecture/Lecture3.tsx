@@ -37,7 +37,7 @@ const Lecture3:FC<Lecture3Props> = ({reviews,clients,quote,achivments}) => {
               <FaQuoteRight className='review-qoute'/>
                <p className='revire-revvoiew'>"{review.review}"</p>
               <div className="review-user">
-                {review.user.username}
+               <h2 className="review-username"> {review.user.username}</h2>
                 {review.user.image && <img className='review-image' src={review.user.image} alt="User" />}
                 
               </div>
@@ -51,8 +51,8 @@ const Lecture3:FC<Lecture3Props> = ({reviews,clients,quote,achivments}) => {
             <HiOutlineFire className='review-quote-logo'/> <h1 className='lecture-quote'>{quote}.</h1></div>
 
           <div className='review-clients'>
-           <div className='review-hihi'>CLIENTS<br /><span>{clients} <FaUserAstronaut className='woohoo' /> </span></div>
-           <div className='review-hihi'>ACHIVEMENTS<br />{achivments} <FaMedal className='woohoo gugugaga'/> </div>
+           <div className='review-hihi'>CLIENTS<br /><span> <div className='text-foink'>{clients}</div>  <FaUserAstronaut className='woohoo' /> </span></div>
+           <div className='review-hihi'>ACHIVEMENTS<br /> <div className='text-foink'>{achivments} </div><FaMedal className='woohoo gugugaga'/> </div>
            </div>
 
 
