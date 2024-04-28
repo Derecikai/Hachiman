@@ -1,74 +1,83 @@
 .first-info-2{
- min-height: 100vh;
- border-right: 1px solid rgba(128, 128, 128, 0.274);
+  width: 98%;
+  height: 50px;
+  transition: all ease-out 0.1s ;
+  margin: 7px 0px;
+  margin-left: 5px;
+font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(255, 255, 255);
 display: flex;
-flex-direction: column;
 align-items: center;
- /* Adjust the blur level as necessary to match your design */
-  backdrop-filter: blur(26px); 
-  /* Using a white background with lower opacity for the glass effect */
-  background-color: rgba(0, 0, 0, 0.178);
-  /* Rounded corners */
-  border-radius: 10px; 
-  /* Adding a border could enhance the glassy look, adjust color and opacity as needed */
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  /* Box shadow for a subtle depth effect, optional */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  /* Padding inside the container */
-  padding: 20px;
-  /* Margin around the container, adjust as necessary */
-  margin: 10px;
-  /* Optional: transition for a smooth effect on state changes like hover */
-  transition: all 0.3s ease;
+justify-content: space-between;
+text-decoration: none;
 }
-.first-info-2-session
-{
+.first-info-2:hover{
+ background-color: rgba(255, 255, 255, 0.349);
+  border-radius: 9px;
+  backdrop-filter: blur(26px);
+}
+.first-infocont-2{
   display: flex;
- justify-content: center;
+align-items: center;
 }
 .flo-cmp-132{
- width: 190px;
- height: 190px;
- border-radius: 9px;
- margin-top: 40px;
+ width: 40px;
+ height: 40px;
+ border-radius: 15px;
+ margin-left: 20px;
+ margin-right: 10px;
 }
-.first-info-2-brawler-name{
- margin-top: 100px;
-  font-size: 40px;
-  background: -webkit-linear-gradient(45deg, #ffffff ,#cfe220  70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight:500;
-  margin-right: 6px;
-  font-family: "Titillium Web", sans-serif;
-  color: #cfe220;
-  font-style: italic;
+.info-2-name{
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 17px;
 }
-section{
- min-height: 53vh;
- background-color: rgba(189, 185, 185, 0);
- width: 92%;
+.info-2-rating{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13px;
+  margin-left: 10px;
 }
-.faq{
- max-width: 100%;
- background: linear-gradient(153deg, rgba(0,0,0,1) 50%, rgba(50,51,60,1) 100%);
- border-radius: 9px;
- padding: 0px 16px;
- margin-top: 2px;
- cursor: pointer;
- color: white;
-  font-family: 'Oswald', sans-serif;
-  font-weight:100;
-  max-height: 210px;
+.first-infocont-3{
+display: flex;
+align-items: center;
+width: 340px;
+background-color: rgba(0, 255, 255, 0);
+justify-content: space-between;
+
 }
-.answer{
- max-height: 0;
- overflow: hidden;
+.info-2-clients{
+  min-width: 70px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
 }
-.faq.active .answer{
-  
- background-color: rgba(250, 235, 215, 0);
- padding: 10px;
-max-height: 300px;
-transition: max-height ease-in 0.3s;
+.info-2-price{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  margin-right: 50px;
+}
+.info2-button-sections{
+  display: flex;
+}
+.info-2-logo{
+  width: 22px;
+  height: 22px;
+  margin: 0px 10px;
+  /* transition: all ease-in 0.1s; */
+}
+.info-2-logox{
+  color: #61dd99;
+  width: 22px;
+  height: 22px;
+  margin: 0px 10px;
+}
+.info-2-logo:hover{
+  color: #61dd99;
 }

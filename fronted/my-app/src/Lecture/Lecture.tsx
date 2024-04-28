@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react'
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import "./Lecture.css";
 import Lecture2 from './Lecture2';
 import { IoMdPersonAdd } from "react-icons/io";
@@ -9,7 +9,11 @@ import { MdBookmarkAdd } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
 import { RiRefund2Fill } from "react-icons/ri";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
 import Lecture3 from './Lecture3';
+import { MdGroupAdd } from "react-icons/md";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 
 interface Brawler {
   _id: string;
@@ -36,7 +40,6 @@ interface Mentor {
 }
 
 interface LectureData {
-
   achivments: number,
   brawler: Brawler,
   clients: number,
@@ -53,6 +56,7 @@ interface LectureData {
   topMentor: boolean,
   status: string,
   reviews: Review[] | [],
+  associeted: LectureData[] | []
 }
 
 // interface Lecture2Props {
@@ -94,17 +98,41 @@ const {id} = useParams();
 
  useEffect(() => {
 getData();
- },[]);
+ },[id]);
 
 
 
   return (
     <div className='lecture-container'>
-    <div className='yolo-1'></div>
-    <div className='yolo-2'></div>
+    <div className='yolo-1'>
+      <div className='yolo-1-container'>
+    <img className='yolo-1-img' src={data?.mentor.image} alt="" />
+    <h1 className='yolo-1-name'>{data && data?.name}</h1>
+    <p className='yolo-1-p'> <span className='span-yolo1'> {data && data?.clients}</span> active subscribers</p>
+    <div className='buttons-yolo-1'>
+    <Link className='link-yolo-1'  to={""}>  <FaCheck className='yolo-1-logo'/>  Subscribe</Link>
+    <Link className='link-yolo-2' to={""}> <MdGroupAdd className='yolo-2-logo' /> </Link>
+    <Link className='link-yolo-3' to={""}> <MdBookmarkAdd className='yolo-3-logo' /> </Link>
+    </div>
+    </div>
+
+
+    </div>
+    <div className='yolo-2'>
+      Guide on
+      <img className='hihihaha' src={data?.brawler.image} alt="" />
+      <p>{data && data.summary}</p>
+    </div>
     <div className='yolo-3'></div>
     <div className='yolo-4'></div>
-    <div className='yolo-5'></div>
+    <div className='yolo-5'>
+   <div className='section-1-yolo5'> <h2 className='title-yolo5'>Other by this Coach</h2>
+    <MdOutlineArrowOutward className='arrow-logo' /></div>
+    {data && data.associeted.map(lecture => (
+         <Link className='sometihn-disada' to={`/lecture/${lecture.id}`}> <Lecture2 key={lecture.id} {...lecture} /></Link>
+        ))}
+
+    </div>
     <div className='yolo-6'></div>
     </div>
   )

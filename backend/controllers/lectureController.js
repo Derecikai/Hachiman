@@ -65,12 +65,23 @@ try{
 try{
 
    const newLec = await Lecture.findById(req.params.id);
+   newLec._doc.clients = newLec._doc.clients.toLocaleString("en-US");
+   
    const reviews = await Review.find({lecture: req.params.id});
-   newLec._doc.reviews = reviews;
+   const associeted = await Lecture.find({
+            mentor: newLec.mentor._id,
+            _id: { $ne: req.params.id }  // Exclude the current lecture
+        }).limit(3);
+   
+   // console.log("associeted lectures of the mentor are", associeted);
+ //We populate review
+    newLec._doc.reviews = reviews;
+     //We populate associated courses of the mentor
+    newLec._doc.associeted = associeted;
    console.log("REVIEWS ARE::: !!! ",reviews);
-   console.log("This is blabla:", newLec);
-
-   newLec.reviews = reviews;
+   // console.log("This is blabla:", newLec);
+   
+  
 
     res.status(200).json({
      status: "succes",
