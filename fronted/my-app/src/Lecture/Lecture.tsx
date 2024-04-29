@@ -1,7 +1,9 @@
 import React, { FC, useEffect, useState } from 'react'
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import "./Lecture.css";
+import "./LectureX.css";
+import LectureX from './LectureX';
 import Lecture2 from './Lecture2';
 import { IoMdPersonAdd } from "react-icons/io";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -9,7 +11,11 @@ import { MdBookmarkAdd } from "react-icons/md";
 import { IoIosStarOutline } from "react-icons/io";
 import { RiRefund2Fill } from "react-icons/ri";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
 import Lecture3 from './Lecture3';
+import { MdGroupAdd } from "react-icons/md";
+import { MdOutlineArrowOutward } from "react-icons/md";
+
 
 interface Brawler {
   _id: string;
@@ -36,7 +42,6 @@ interface Mentor {
 }
 
 interface LectureData {
-
   achivments: number,
   brawler: Brawler,
   clients: number,
@@ -53,6 +58,7 @@ interface LectureData {
   topMentor: boolean,
   status: string,
   reviews: Review[] | [],
+  associeted: LectureData[] | []
 }
 
 // interface Lecture2Props {
@@ -62,6 +68,7 @@ interface LectureData {
 const Lecture:FC = () => {
 
  const [data,setData] = useState<LectureData | null>(null);
+ const [isSecondSlideVisible, setIsSecondSlideVisible] = useState<boolean>(false);
 const {id} = useParams();
  
  const getData = async ():Promise<void> =>{   
@@ -77,72 +84,68 @@ const {id} = useParams();
       }
 
  }
+  
+ const toggleSecondSlide = () => {
+    setIsSecondSlideVisible(!isSecondSlideVisible);
+  };
 
-
+{/* <div className='second-doc'>
+     {data && 
+      <Lecture2 
+       image={data.image}
+       name={data.brawler.name} 
+      />
+      } 
+     </div> */}
 
  useEffect(() => {
 getData();
- },[]);
+ },[id]);
 
 
 
   return (
     <div className='lecture-container'>
-     <div className='first-doc'>
-
-      {data && <div className='first-info1'>
-       <img className='brawler-guy' src={data?.mentor?.image} alt="" />
-      <h1 className='first-info1-name'> { data?.name}</h1>
-      <h4 className='first-info1-author'>Author: <span>{ data?.mentor?.username}</span></h4>
-      <p className='first-info1-summary'>{data.summary}</p>
-      </div>}
-
-     <div className='first-info1-buttons'>
-      <button className='first-info1-button uwuflocp'>
-        <IoMdPersonAdd className='icon-1-first' />
-         Follow</button>
-      <button className='first-info1-button specialuwu'>
-       <FaMoneyBillWave className='icon-2-first'/> Subscribe</button>
-      <button className='first-info1-button'>
-       <MdBookmarkAdd className='icon-3-first'/>
-       Save</button>
-</div>
-
-<div className='first-info1-details'>
-
-<div className='first-info1-details-1'>
-  <h4> <MdOutlineAttachMoney className='first-info1-details-1-logo smthlo2'/> Sesion stars at: </h4>
-  <h4><span>{data?.sesionStart}$</span></h4>
-</div>
-<div className='first-info1-details-1'>
-  <h4><IoIosStarOutline className='first-info1-details-1-logo smthlo3'/> Rating: </h4>
-  <h4 className='smthlo3'>{data?.rating} Stars</h4>
-</div>
-<div className='first-info1-details-1'>
-  <h4><RiRefund2Fill className='first-info1-details-1-logo smthlo'/> Refund Policy: </h4>
-  <h4 className='smthlo'>Flexibile</h4>
-</div>
+    <div className='yolo-1'>
+      <div className='yolo-1-container'>
+    <img className='yolo-1-img' src={data?.mentor.image} alt="" />
+    <h1 className='yolo-1-name'>{data && data?.name}</h1>
+    <p className='yolo-1-p'> <span className='span-yolo1'> {data && data?.clients}</span> active subscribers</p>
+    <div className='buttons-yolo-1'>
+    <Link className='link-yolo-1'  to={""}>  <FaCheck className='yolo-1-logo'/>  Subscribe</Link>
+    <Link className='link-yolo-2' to={""}> <MdGroupAdd className='yolo-2-logo' /> </Link>
+    <Link className='link-yolo-3' to={""}> <MdBookmarkAdd className='yolo-3-logo' /> </Link>
+    </div>
+    </div>
 
 
-</div>
+    </div>
+    <div className='yolo-2'>
+      {data && <Lecture3 image={data?.brawler.image} 
+      summary={data.summary} />}
+    </div>
+    <div className='yolo-3'>
 
-     </div>
-     <div className='second-doc'>
-      {data && 
-      <Lecture2 
-       image={data.image}
-       name={data.brawler.name} 
-      />
-      }
-     </div>
-     <div className='third-doc'>
-      <Lecture3
-       clients={data?.clients as number}
-       reviews={data?.reviews as Review[]}
-       quote={data?.quote as string}
-  achivments={data?.achivments as number}
-        />
-     </div>
+     <button className='button-yolo-3'> <h2 className='yolo-3-txt'>See the courses</h2>  <MdOutlineArrowOutward className='arrow-logo-3' /> </button>
+
+    </div>
+    <div className='yolo-4'>
+      Next
+    </div>
+    
+    
+    
+    <div className='yolo-5'>
+   <div className='section-1-yolo5'> <h2 className='title-yolo5'>Other by this Coach</h2>
+    <MdOutlineArrowOutward className='arrow-logo' /></div>
+    {data && data.associeted.map(lecture => (
+         <Link className='sometihn-disada' to={`/lecture/${lecture.id}`}> <Lecture2 key={lecture.id} {...lecture} /></Link>
+        ))}
+
+    </div>
+    <div className='yolo-6'>
+      <LectureX reviews={data?.reviews as Review[]} />
+    </div>
     </div>
   )
 }

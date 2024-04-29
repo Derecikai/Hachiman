@@ -6,60 +6,27 @@ import { FaQuoteRight } from "react-icons/fa";
 import { HiOutlineFire } from "react-icons/hi";
 import { FaUserAstronaut } from "react-icons/fa";
 import { FaMedal } from "react-icons/fa6";
-interface Review {
-  review: string;
-  user: {
-    username: string;
-    _id: string;
-    image?: string;
-  };
-}
+import { IoLogoSnapchat } from "react-icons/io";
+
 
 interface Lecture3Props {
-  reviews: Review[] | [],
-  quote: string,
-  achivments: number,
-  clients: number,
+ summary: string,
+  image: string | undefined,
 }
 
-const Lecture3:FC<Lecture3Props> = ({reviews,clients,quote,achivments}) => {
+const Lecture3:FC<Lecture3Props> = ({image,summary}) => {
 
 
 
   return (
-    <div className="lecture3-container">
+  <div className="lecture3-container">
+  <div className='container-3'>
+    <h2 className='lecture3-title'>Guide On</h2>
+    <img className='image-lecture-3'  src={image} alt="" /></div>
+      <p className='lecture-summary'> {summary}</p> 
       
-
-      
-       
-          {reviews && reviews.map((review, index) => (
-            <div className="reviews" key={index}>
-              <FaQuoteRight className='review-qoute'/>
-               <p className='revire-revvoiew'>"{review.review}"</p>
-              <div className="review-user">
-                {review.user.username}
-                {review.user.image && <img className='review-image' src={review.user.image} alt="User" />}
-                
-              </div>
-             
-            </div>
-          ))}
-       
-
-        <div className='second-lecture-stuff'>
-          <div className='review-quote'>
-            <HiOutlineFire className='review-quote-logo'/> <h1 className='lecture-quote'>{quote}.</h1></div>
-
-          <div className='review-clients'>
-           <div className='review-hihi'>CLIENTS<br /><span>{clients} <FaUserAstronaut className='woohoo' /> </span></div>
-           <div className='review-hihi'>ACHIVEMENTS<br />{achivments} <FaMedal className='woohoo gugugaga'/> </div>
-           </div>
-
-
-        </div>
-       
-    </div>
-  )
+      {/* <IoLogoSnapchat className='something-cool'/>    */}
+    </div>)
 }
 
 export default Lecture3
