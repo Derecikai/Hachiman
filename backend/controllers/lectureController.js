@@ -67,7 +67,7 @@ try{
    const newLec = await Lecture.findById(req.params.id);
    newLec._doc.clients = newLec._doc.clients.toLocaleString("en-US");
    
-   const reviews = await Review.find({lecture: req.params.id});
+   const reviews = await Review.find({lecture: req.params.id}).limit(1);
    const associeted = await Lecture.find({
             mentor: newLec.mentor._id,
             _id: { $ne: req.params.id }  // Exclude the current lecture

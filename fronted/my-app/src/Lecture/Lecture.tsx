@@ -2,6 +2,8 @@ import React, { FC, useEffect, useState } from 'react'
 import axios from "axios";
 import { useParams,Link } from 'react-router-dom';
 import "./Lecture.css";
+import "./LectureX.css";
+import LectureX from './LectureX';
 import Lecture2 from './Lecture2';
 import { IoMdPersonAdd } from "react-icons/io";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -119,12 +121,20 @@ getData();
 
     </div>
     <div className='yolo-2'>
-      Guide on
-      <img className='hihihaha' src={data?.brawler.image} alt="" />
-      <p>{data && data.summary}</p>
+      {data && <Lecture3 image={data?.brawler.image} 
+      summary={data.summary} />}
     </div>
-    <div className='yolo-3'></div>
-    <div className='yolo-4'></div>
+    <div className='yolo-3'>
+
+     <button className='button-yolo-3'> <h2 className='yolo-3-txt'>See the courses</h2>  <MdOutlineArrowOutward className='arrow-logo-3' /> </button>
+
+    </div>
+    <div className='yolo-4'>
+      Next
+    </div>
+    
+    
+    
     <div className='yolo-5'>
    <div className='section-1-yolo5'> <h2 className='title-yolo5'>Other by this Coach</h2>
     <MdOutlineArrowOutward className='arrow-logo' /></div>
@@ -133,7 +143,9 @@ getData();
         ))}
 
     </div>
-    <div className='yolo-6'></div>
+    <div className='yolo-6'>
+      <LectureX reviews={data?.reviews as Review[]} />
+    </div>
     </div>
   )
 }
