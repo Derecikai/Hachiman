@@ -15,6 +15,7 @@ import { FaCheck } from "react-icons/fa6";
 import Lecture3 from './Lecture3';
 import { MdGroupAdd } from "react-icons/md";
 import { MdOutlineArrowOutward } from "react-icons/md";
+import Lecture4 from './Lecture4';
 
 
 interface Brawler {
@@ -58,7 +59,8 @@ interface LectureData {
   topMentor: boolean,
   status: string,
   reviews: Review[] | [],
-  associeted: LectureData[] | []
+  associeted: LectureData[] | [],
+  reviewsLength: number,
 }
 
 // interface Lecture2Props {
@@ -130,7 +132,7 @@ getData();
 
     </div>
     <div className='yolo-4'>
-      Next
+      <Lecture4 reviewsLength={data?.reviewsLength}/>
     </div>
     
     
@@ -144,7 +146,7 @@ getData();
 
     </div>
     <div className='yolo-6'>
-      <LectureX reviews={data?.reviews as Review[]} />
+      <LectureX reviews={data?.reviews as Review[]} quote={data?.quote} achivments={data?.achivments} reviewsLength={data?.reviewsLength}/>
     </div>
     </div>
   )

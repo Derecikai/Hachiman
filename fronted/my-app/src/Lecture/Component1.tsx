@@ -1,5 +1,6 @@
 import React,{FC} from 'react'
 import "./Component1.css"
+import { FaQuoteRight } from "react-icons/fa";
 
 interface Review{
   id: string,
@@ -23,7 +24,12 @@ const Component1:FC<LectureXProps> = ({reviews}) => {
 {reviews &&
       reviews.map((item:Review) => (
       <div className='review-container'> 
-      {item.review}
+      <h2 className='review-review'>"{item.review}"</h2>
+      <div className='review-low'>
+      <h2 className='review-username'>{item.user.username}</h2>
+     <img className='review-image' src={item.user.image} alt="" /> 
+     </div>
+     <FaQuoteRight className='review-quote-uwu' />
       </div>
       ))}
 

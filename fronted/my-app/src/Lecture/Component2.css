@@ -1,0 +1,33 @@
+.comp2-quote-container{
+ width: 90%;
+ height: 200px;
+margin-left: 15px;
+border-radius: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+background-image: url('https://cdn.dribbble.com/userupload/10321493/file/original-3c596def8bd2ba58bea8bbd2c97c8834.png?crop=0x0-808x606&resize=1000x1000&vertical=center');
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+border: 1px solid 
+#33343d;
+/* box-shadow: 0px 0px 4px 4px #1ed760; */
+margin-top: 25px;
+}
+.comp2-quote-quote{
+ background-color: #33343d2d;
+ border-radius: 10px;
+ backdrop-filter: blur(26px);
+ text-align: center;
+ min-width: 170px;
+ max-width: 170px;
+ font-size: 20px;
+ color: #ffffff;
+ font-family: "Anton", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-style: italic;
+  padding: 5px 0px;
+  letter-spacing: 1.4px;
+}
