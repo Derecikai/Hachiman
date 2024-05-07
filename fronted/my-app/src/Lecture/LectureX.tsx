@@ -47,7 +47,7 @@ const LectureX: FC<LectureXProps> = ({ reviews, quote,achivments,reviewsLength }
           <FaOptinMonster className='icon-lecturex' />
           <div className="sometext-lecturex">Brawlers</div>
         </Link> */}
-        <Link className='button-lecturex-ind' to={"/home"} onClick={() => setActiveComponent('component1')}>
+        <Link className='button-lecturex-ind' to={"/search"} onClick={() => setActiveComponent('component1')}>
           <FiUser className='icon-lecturex' />
           <div className="sometext-lecturex"> Profile</div>
         </Link>

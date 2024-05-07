@@ -12,14 +12,16 @@ import GetAll from './GetAll';
 import Home from './Home/Home';
 import Search from './Search/Search';
 import Lecture from "./Lecture/Lecture";
+import {AuthProvider} from "./Context/userContext";
+import Login from "./LogIn/Login"
 
-function App() {
 
-
+const App = () => {
 
 
   return (
     <div>
+      <AuthProvider>
        <Router>
         <Navbar />
         
@@ -30,12 +32,11 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/search" element={<Search />} />       
         <Route path="lecture/:id" element={<Lecture />} />
+        <Route path="login" element={<Login />} />
        
-
-        {/* /chatroom/${persdata.sub} */}
       </Routes>
     </Router>
-        
+        </AuthProvider>
     </div>
   );
 }

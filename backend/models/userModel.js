@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const validator = require('validator') //npm i validator
 const bcrypt = require('bcryptjs'); //npm i bcryptjs
 const { type } = require('os');
+const Lecture = require('./lectureModel');
 
 const userSchema = new mongoose.Schema({
 
@@ -32,13 +33,15 @@ email: {
  },
  passwordConfirm: {
      type: String,
-     required: [true,'ConfirmPassword is required'],
+     required: function() {
+        return this.isNew
+    },
      //Only works on create and save!!
      validate: {
         validator: function(el) {
             return el === this.password
         } 
-     }
+     } 
  },
  passwordChangedAt: Date,
  passwordResetToken: String,
