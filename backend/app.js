@@ -3,9 +3,11 @@ const userRouter = require('./routes/userRoutes');
 const lectureRouter = require('./routes/lectureRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const brawlerRoute = require('./routes/brawlerRoute');
+const subscribeRoute = require('./routes/subscribeRoute');
 const app = express();
 const globalErrorHandler = require('./controllers/errorController')
 const cors = require('cors'); // Import cors
+const AppError = require('./utils/appError');
 
 app.use(express.static(`${__dirname}/public`))
 
@@ -17,6 +19,7 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/lectures', lectureRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/brawlers', brawlerRoute)
+app.use('/api/v1/subscribe', subscribeRoute)
 
 
 app.all('*', (req,res,next) =>{

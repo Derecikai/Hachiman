@@ -67,6 +67,9 @@ try{
    const newLec = await Lecture.findById(req.params.id);
    newLec._doc.clients = newLec._doc.clients.toLocaleString("en-US");
    
+ // Get the total number of reviews for the lecture
+        const totalReviewsCount = await Review.countDocuments({ lecture: req.params.id });
+
    const reviews = await Review.find({lecture: req.params.id}).limit(1);
    const associeted = await Lecture.find({
             mentor: newLec.mentor._id,
@@ -75,10 +78,17 @@ try{
    
    // console.log("associeted lectures of the mentor are", associeted);
  //We populate review
+   
     newLec._doc.reviews = reviews;
+
+    console.log("REVIEWS ARE::: !!! ",reviews);
+
+    if(newLec._doc.reviews){
+     newLec._doc.reviewsLength = totalReviewsCount;
+   }
      //We populate associated courses of the mentor
     newLec._doc.associeted = associeted;
-   console.log("REVIEWS ARE::: !!! ",reviews);
+   
    // console.log("This is blabla:", newLec);
    
   

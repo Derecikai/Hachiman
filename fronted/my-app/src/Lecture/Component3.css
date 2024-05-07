@@ -1,0 +1,21 @@
+.numbers-comp3-container{
+ width: 86%;
+ min-height: 200px;
+background: linear-gradient(to right, #3498db, #686fc9, #61dd99);
+
+margin-left: 20px;
+margin-top: 25px;
+border-radius: 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.comp3-text{
+  z-index: 100;
+  overflow: hidden;
+  color: #ffffff;
+ font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  
+}

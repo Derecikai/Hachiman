@@ -7,7 +7,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import { FaApple } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
-import axios from 'axios'; // Import Axios
+import axios from 'axios'; 
 import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
