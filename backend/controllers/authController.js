@@ -3,6 +3,7 @@ const User = require('../models/userModel')
 const jwt = require('jsonwebtoken');
 const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync')
+const {promisify} = require('util');
 
 const SignToken = id =>{
    return jwt.sign({ id }, process.env.JWT_SECRET, {
@@ -87,10 +88,10 @@ exports.protect = catchAsync( async(req,res,next) =>{
     return next( new AppError('User does not exist',401));
   }
 
-  if(freshUser.changedPasswordAfter(decoded.iat))
-  {
-    return next( new AppError('Password has been changed, log in again',401));
-  }
+  // if(freshUser.changedPasswordAfter(decoded.iat))
+  // {
+  //   return next( new AppError('Password has been changed, log in again',401));
+  // }
 
   req.user = freshUser;
 

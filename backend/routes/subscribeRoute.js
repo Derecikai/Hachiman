@@ -6,7 +6,7 @@ const subscribeController = require("../controllers/subscribeController");
 
 
 router.post('/:id', subscribeController.subscribeLecture);
-router.get('/:id', subscribeController.getSubscribption);
-
+router.get('/:id', authController.protect,subscribeController.getSubscribption);
+router.get('/check/:id', authController.protect, subscribeController.checkIfSubbed);
 
 module.exports = router;

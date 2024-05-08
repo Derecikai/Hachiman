@@ -2,6 +2,7 @@ const Lecture = require("../models/lectureModel");
 const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
 const Subscription = require("../models/subscriptionsModel");
+const AppError = require("../utils/appError")
 
 
 
@@ -31,7 +32,30 @@ exports.getSubscribption = catchAsync( async (req,res,next) => {
 
     res.status(200).json({
      status: 'Succes',
-      data:newSub
+      data:newSub,
+      user: req.user
     })
+
+})
+exports.checkIfSubbed = catchAsync( async (req,res,next) =>{
+
+   newSub = await Subscription.find({$and: [
+      { lecture: req.params.id }, // Lecture ID condition
+      { user: req.user._id } // User ID condition
+    ]});
+
+   console.log(newSub,"THIS IS SUBB!!!!!!");
+
+  if( !newSub[0]?.lecture  )
+    {
+      return next(new AppError("There is no subscription with that id",404));
+    }
+else if(newSub[0].lecture){
+  res.status(200).json({
+          status:"Succes",
+          subscribed: true,
+        })
+}
+
 
 })

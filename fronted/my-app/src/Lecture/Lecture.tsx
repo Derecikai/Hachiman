@@ -17,6 +17,9 @@ import { MdGroupAdd } from "react-icons/md";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Lecture4 from './Lecture4';
 import { useAuth } from 'Context/userContext';
+import { MdPersonAddDisabled } from "react-icons/md";
+import { RiChatDeleteFill } from "react-icons/ri";
+import { CiCircleRemove } from "react-icons/ci";
 
 
 interface Brawler {
@@ -75,6 +78,8 @@ type AuthState = {
 // }
 const Lecture:FC = () => {
  const [subscribe,setSubscribe]  = useState<boolean>(false);
+ const [friend,setFriend]  = useState<boolean>(false);
+ const [follow,setFollow]  = useState<boolean>(false);
  const [data,setData] = useState<LectureData | null>(null);
  const [isSecondSlideVisible, setIsSecondSlideVisible] = useState<boolean>(false);
  const {auth} = useAuth();
@@ -96,7 +101,20 @@ const {id} = useParams();
         console.log(error);
       }
 
- }
+ };
+
+
+const getSub = async():Promise<void> =>{
+  try{
+   
+  }catch(error)
+  {
+    console.log(error);
+  }
+}
+
+
+
   
  const toggleSub = () => {
     setSubscribe(!subscribe);
@@ -107,6 +125,9 @@ const {id} = useParams();
   if(auth.token === null){
    navigate('/login')
   }
+
+
+
 
 
 getData();
@@ -123,9 +144,12 @@ getData();
     <h1 className='yolo-1-name'>{data && data?.name}</h1>
     <p className='yolo-1-p'> <span className='span-yolo1'> {data && data?.clients}</span> active subscribers</p>
     <div className='buttons-yolo-1'>
-    <Link className='link-yolo-1' onClick={toggleSub}  to={""}>  <FaCheck className='yolo-1-logo'/>{subscribe ? "Unsubscribe" : "Subscribe"}</Link>
-    <Link className='link-yolo-2' to={""}> <MdGroupAdd className='yolo-2-logo' /> </Link>
-    <Link className='link-yolo-3' to={""}> <MdBookmarkAdd className='yolo-3-logo' /> </Link>
+
+    <Link className='link-yolo-1' onClick={toggleSub}  to={""}>  {subscribe ? <CiCircleRemove className='yolo-1-logo'/> : <FaCheck className='yolo-1-logo'/>}   {subscribe ? "Unsubscribe" : "Subscribe"}</Link>
+
+    <Link className='link-yolo-2' onClick={() =>{setFriend(!friend)}} to={""}> {friend ? <MdGroupAdd className='yolo-2-logo' /> : <MdPersonAddDisabled className='yolo-2-logo'/>} </Link>
+
+    <Link className='link-yolo-3' onClick={() =>{setFollow(!follow)}} to={""}> {follow ? <MdBookmarkAdd className='yolo-3-logo' /> : <RiChatDeleteFill className='yolo-3-logo'/>} </Link>
     </div>
     </div>
 
