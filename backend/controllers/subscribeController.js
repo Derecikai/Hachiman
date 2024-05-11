@@ -8,13 +8,15 @@ const AppError = require("../utils/appError")
 
 exports.subscribeLecture = catchAsync( async (req, res, next) =>{
 
- const { lectId} = req.body;
+
+ const  lectId  = req.params.id;
+ const userId = req.user._id;
 
    console.log("THIS IS LECTID!!!!!!",lectId);
 
  const subscription  = await Subscription.create({
   lecture: lectId,
-  user: req.params.id
+  user: userId,
  });
   console.log("THIS IS SUBB!!!!!!",subscription);
 
@@ -37,25 +39,52 @@ exports.getSubscribption = catchAsync( async (req,res,next) => {
     })
 
 })
-exports.checkIfSubbed = catchAsync( async (req,res,next) =>{
-
-   newSub = await Subscription.find({$and: [
+exports.checkIfSubbed =  async (req,res,next) =>{
+try{
+   newSub = await Subscription.findOne({$and: [
       { lecture: req.params.id }, // Lecture ID condition
       { user: req.user._id } // User ID condition
     ]});
 
    console.log(newSub,"THIS IS SUBB!!!!!!");
 
-  if( !newSub[0]?.lecture  )
+  if( newSub === null )
     {
-      return next(new AppError("There is no subscription with that id",404));
+       res.status(200).json({
+          status:"Succes",
+          subscribed: false,
+        })
     }
-else if(newSub[0].lecture){
+else if( newSub !== null){
   res.status(200).json({
           status:"Succes",
           subscribed: true,
         })
 }
+}
+catch(error)
+{
+  console.log("An error occured",error);
+  next(error);
+}
+}
+
+exports.deleteSub = catchAsync(async (req, res, next) => {
+   
+   
+
+  const doc = await Subscription.findOneAndDelete({user: req.user._id,
+    lecture: req.params.id
+   });
+
+   if(!doc){
+    next(new AppError("There no Subscription with that id",404));
+   }
+
+   res.status(204).json({
+    status: "Delete was succsesful"
+   })
+
 
 
 })

@@ -72,6 +72,10 @@ type AuthState = {
   isLoggedIn: boolean;
 };
 
+type error  ={
+  message: string,
+}
+
 // interface Lecture2Props {
 //   image: string,
 //   name: string
@@ -87,11 +91,16 @@ const {id} = useParams();
  const navigate = useNavigate();
  
 
-    console.log(auth.token,"Divers");
+    // console.log(auth.token,"Divers");
 
  const getData = async ():Promise<void> =>{   
       try{
-    const response = await axios.get(`http://localhost:8000/api/v1/lectures/${id}`);
+    const response = await axios.get(`http://localhost:8000/api/v1/lectures/${id}`,{
+  headers: {
+    'Authorization': `Bearer ${auth.token}`
+  }
+  
+});
      console.log(response.data.data);
       if (response.data && response.data.data) {
       setData(response.data.data);
@@ -103,10 +112,23 @@ const {id} = useParams();
 
  };
 
-
+//Here we check on rendering if the lecture is subscribed or not
 const getSub = async():Promise<void> =>{
   try{
-   
+   const response = await axios.get(`http://localhost:8000/api/v1/subscribe/check/${id}`,{
+  headers: {
+    'Authorization': `Bearer ${auth.token}`
+  }
+  
+});
+   console.log(response?.data.subscribed,"This is Data::::::")
+   if(response?.data.subscribed === true)
+    {
+      setSubscribe(true);
+    }
+    else if (response?.data.subscribed === false){
+      setSubscribe(false);
+    }
   }catch(error)
   {
     console.log(error);
@@ -115,9 +137,41 @@ const getSub = async():Promise<void> =>{
 
 
 
+
   
- const toggleSub = () => {
-    setSubscribe(!subscribe);
+ const toggleSub = async () => {
+  if(subscribe){
+    try{
+     const response = await axios.delete(`http://localhost:8000/api/v1/subscribe/${id}`,{
+  headers: {
+    'authorization': `Bearer ${auth.token}`
+  }
+  
+})
+     console.log(response.data);
+     setSubscribe(false);
+    }catch(error)
+    {
+      console.log(error,"This is the error")
+    }
+  }
+
+  else if (!subscribe){
+    try{
+      const response = await axios.post(`http://localhost:8000/api/v1/subscribe/${id}`,{},
+        {
+          headers:{
+            'authorization' : `Bearer ${auth.token}`
+          }
+        }
+      );
+      console.log(response.data)
+      setSubscribe(true);
+    }catch(error){
+        console.log(error)
+    }
+  }
+
   };
 
  useEffect(() => {
@@ -126,12 +180,12 @@ const getSub = async():Promise<void> =>{
    navigate('/login')
   }
 
-
-
-
-
+  
 getData();
- },[id,auth.token]);
+getSub();
+
+
+ },[id,auth.token,follow]);
 
 
 
@@ -145,11 +199,12 @@ getData();
     <p className='yolo-1-p'> <span className='span-yolo1'> {data && data?.clients}</span> active subscribers</p>
     <div className='buttons-yolo-1'>
 
-    <Link className='link-yolo-1' onClick={toggleSub}  to={""}>  {subscribe ? <CiCircleRemove className='yolo-1-logo'/> : <FaCheck className='yolo-1-logo'/>}   {subscribe ? "Unsubscribe" : "Subscribe"}</Link>
+    <Link className='link-yolo-1' onClick={toggleSub} to={"#"}>  {subscribe ? <CiCircleRemove  className='yolo-1-logo'/> : <FaCheck className='yolo-1-logo'/>}   {subscribe ? "Unsubscribe" : "Subscribe"}</Link>
 
-    <Link className='link-yolo-2' onClick={() =>{setFriend(!friend)}} to={""}> {friend ? <MdGroupAdd className='yolo-2-logo' /> : <MdPersonAddDisabled className='yolo-2-logo'/>} </Link>
+    <Link className='link-yolo-2' onClick={() =>{setFriend(!friend)}} to={""}> {friend ? <MdPersonAddDisabled className='yolo-2-logo' /> : <MdGroupAdd className='yolo-2-logo'/>} </Link>
 
-    <Link className='link-yolo-3' onClick={() =>{setFollow(!follow)}} to={""}> {follow ? <MdBookmarkAdd className='yolo-3-logo' /> : <RiChatDeleteFill className='yolo-3-logo'/>} </Link>
+    <Link className='link-yolo-3' onClick={() =>{setFollow(!follow)}} to={""}> {follow ? <RiChatDeleteFill className='yolo-3-logo' /> : <MdBookmarkAdd className='yolo-3-logo'/>} </Link>
+
     </div>
     </div>
 
@@ -178,7 +233,7 @@ getData();
    <div className='section-1-yolo5'> <h2 className='title-yolo5'>Other by this Coach</h2>
     <MdOutlineArrowOutward className='arrow-logo' /></div>
     {data && data.associeted.map(lecture => (
-         <Link className='sometihn-disada' to={`/lecture/${lecture.id}`}> <Lecture2 key={lecture.id} {...lecture} /></Link>
+         <Link  key={lecture.id} className='sometihn-disada' to={`/lecture/${lecture.id}`}> <Lecture2 key={lecture.id} {...lecture} /></Link>
         ))}
 
     </div>
